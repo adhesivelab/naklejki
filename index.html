@@ -100,7 +100,6 @@
         Dla zamówień od 120 PLN | Realizacja 24h | Folie Oracal 641 Premium
     </div>
 
-    <!-- HEADER -->
     <header class="sticky top-0 z-40 bg-mono-950/95 backdrop-blur-md border-b border-mono-800">
         
         <div id="logoStage">
@@ -121,7 +120,6 @@
         </div>
     </header>
 
-    <!-- SEKCJA 1: KREATOR -->
     <main class="flex-grow max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-8 app-section" id="sec-creator">
         <div class="mb-6 sm:mb-8 border-b border-mono-800 pb-4 flex flex-col md:flex-row md:items-end justify-between gap-2 sm:gap-4">
             <div>
@@ -134,9 +132,7 @@
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
-            <!-- PANEL LEWY -->
             <div class="lg:col-span-5 space-y-5 sm:space-y-6 bg-mono-900/60 p-3 sm:p-6 rounded-md border border-mono-800">
-                <!-- 1. Tekst -->
                 <div>
                     <label for="stickerTextInput" class="block text-[10px] sm:text-xs uppercase tracking-wider text-mono-300 font-bold mb-1.5 sm:mb-2">1. Treść naklejki (Twój nick)</label>
                     <div class="relative">
@@ -145,7 +141,6 @@
                     </div>
                 </div>
 
-                <!-- 2. Ikona -->
                 <div>
                     <span class="block text-[10px] sm:text-xs uppercase tracking-wider text-mono-300 font-bold mb-1.5 sm:mb-2">2. Wybierz Ikonę</span>
                     <div class="grid grid-cols-5 gap-1 sm:gap-2" id="iconPickerGroup">
@@ -157,7 +152,6 @@
                     </div>
                 </div>
 
-                <!-- 3. Czcionka -->
                 <div>
                     <span class="block text-[10px] sm:text-xs uppercase tracking-wider text-mono-300 font-bold mb-1.5 sm:mb-2">3. Styl Czcionki</span>
                     <div class="grid grid-cols-1 gap-1 sm:gap-2" id="fontPickerGroup">
@@ -169,7 +163,6 @@
                     </div>
                 </div>
 
-                <!-- 4. Kolor -->
                 <div>
                     <span class="block text-[10px] sm:text-xs uppercase tracking-wider text-mono-300 font-bold mb-1.5 sm:mb-2">4. Kolor Folii</span>
                     <div class="grid grid-cols-2 sm:grid-cols-3 gap-1 sm:gap-2" id="colorPickerGroup">
@@ -182,7 +175,6 @@
                     </div>
                 </div>
 
-                <!-- 5. Rozmiar -->
                 <div>
                     <span class="block text-[10px] sm:text-xs uppercase tracking-wider text-mono-300 font-bold mb-1.5 sm:mb-2">5. Rozmiar</span>
                     <div class="grid grid-cols-3 sm:grid-cols-6 gap-1 sm:gap-2" id="sizePickerGroup">
@@ -195,7 +187,6 @@
                     </div>
                 </div>
 
-                <!-- Cena i Zamówienie -->
                 <div class="pt-3 sm:pt-4 border-t border-mono-800 space-y-3 sm:space-y-4">
                     <div class="flex items-center justify-between">
                         <div>
@@ -212,7 +203,6 @@
                 </div>
             </div>
 
-            <!-- PANEL PRAWY (Podgląd) -->
             <div class="lg:col-span-7 flex flex-col mt-2 lg:mt-0">
                 <div class="bg-mono-900 border border-mono-800 rounded-md p-3 sm:p-4 flex-grow flex flex-col justify-between">
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-2 sm:mb-4 pb-2 sm:pb-3 border-b border-mono-800">
@@ -250,7 +240,6 @@
         </div>
     </main>
 
-    <!-- SEKCJA 2: KATALOG -->
     <section class="app-section border-t border-mono-800 bg-mono-900/40 py-8 sm:py-16 hidden" id="sec-catalog">
         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-8 pb-4 border-b border-mono-800">
@@ -260,13 +249,10 @@
                     <i class="fa-solid fa-magnifying-glass absolute right-3 top-3 text-mono-500 text-xs"></i>
                 </div>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6" id="catalogGrid">
-                <!-- Karty generowane przez JS -->
-            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6" id="catalogGrid"></div>
         </div>
     </section>
 
-    <!-- SEKCJA 3: INSTRUKCJA -->
     <section class="app-section py-8 sm:py-16 border-t border-mono-800 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 hidden" id="sec-instructions">
         <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
             <span class="text-[10px] sm:text-xs uppercase tracking-widest text-mono-400 font-bold">Poradnik Aplikacji</span>
@@ -281,7 +267,6 @@
         </div>
     </section>
 
-    <!-- STOPKA -->
     <footer class="border-t border-mono-800 bg-mono-950 py-6 sm:py-10 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6">
             <span class="font-logo-gothic text-white text-lg">adhesive</span>
@@ -301,13 +286,12 @@
     (function() {
         'use strict';
 
-        const INSTAGRAM_USERNAME = "adhesive.lab"; // ZMIEŃ NA SWÓJ NICK
+        const INSTAGRAM_USERNAME = "adhesive.lab";
         const pln = new Intl.NumberFormat('pl-PL', { style:'currency', currency:'PLN' });
         const fmt = (v) => pln.format(v).replace(/\u00A0/g, ' ');
         const $ = (sel, root=document) => root.querySelector(sel);
         const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
 
-        // PODMIENIONY KATALOG
         const CATALOG = [
             { id:'cat-1', title:'ANTISOCIAL', fontClass:'font-gothic', price:25, size:'20cm', dims:'20 × 4.0 cm', image:'zdjecia/antisocial.png' },
             { id:'cat-2', title:'DRIVE SAFE', fontClass:'font-minimal', price:22, size:'20cm', dims:'20 × 3.0 cm', image:'zdjecia/drivefase.png' },
@@ -335,7 +319,6 @@
             color:'white', colorName:'Biały', colorModifier:1.0, sizeCm:20, basePrice:24, quantity:1, bgMode:'glass'
         };
 
-        // --- NAWIGACJA ZAKŁADEK ---
         window.switchView = function(viewName) {
             $$('.app-section').forEach(el => el.classList.add('hidden'));
             $$('.nav-tab').forEach(btn => {
@@ -356,7 +339,6 @@
             toastTimer = setTimeout(() => $('#toast').classList.add('translate-y-24', 'opacity-0'), 3000);
         }
 
-        // --- KREATOR ---
         function calcUnitPrice() { return state.basePrice * state.colorModifier; }
         function updateConfiguratorUI() {
             const len = state.text.length;
@@ -421,7 +403,6 @@
         $('#qtyMinus').addEventListener('click', () => { if(state.quantity>1) {state.quantity--; updateConfiguratorUI();} });
         $('#qtyPlus').addEventListener('click', () => { state.quantity++; updateConfiguratorUI(); });
 
-        // --- PRZEKIEROWANIE NA IG ---
         $('#orderViaIgBtn').addEventListener('click', () => {
             const msg = `Siema! Chcę zamówić naklejkę:\n\n📝 Tekst: ${state.text}\n🔤 Czcionka: ${state.fontName}\n🎨 Kolor: ${state.colorName}\n📏 Rozmiar: ${state.sizeCm} cm\n🔢 Ilość: ${state.quantity} szt.\n💰 Cena: ${$('#dynamicPriceDisplay').textContent}`;
             const url = `https://ig.me/m/${INSTAGRAM_USERNAME}?text=${encodeURIComponent(msg)}`;
@@ -429,19 +410,17 @@
             showToast("Otwieram Instagrama...");
         });
 
-        // --- KATALOG ---
         function renderCatalog() {
             $('#catalogGrid').innerHTML = CATALOG.map(item => {
                 const isFav = localStorage.getItem('fav_'+item.id) === 'true';
-                const def = CATALOG_COLORS[0];
                 return `
-                <div class="catalog-card bg-mono-900 border border-mono-800 rounded p-3 sm:p-5 flex flex-col justify-between hover:border-mono-600 transition group relative" id="${item.id}" data-selected-color="${def.name}">
+                <div class="catalog-card bg-mono-900 border border-mono-800 rounded p-3 sm:p-5 flex flex-col justify-between hover:border-mono-600 transition group relative" id="${item.id}">
                     <button class="fav-btn absolute top-2 sm:top-3 right-2 sm:right-3 text-base sm:text-lg z-10 p-1 ${isFav ? 'text-red-500' : 'text-mono-500 hover:text-white'}" onclick="toggleFav(event, '${item.id}', this)">
                         <i class="fa-${isFav ? 'solid' : 'regular'} fa-heart"></i>
                     </button>
                     <div>
-                        <div class="bg-mono-950 h-32 sm:h-48 rounded flex items-center justify-center mb-2 sm:mb-4 border border-mono-850 group-hover:bg-mono-900 transition relative overflow-hidden">
-                            <img src="${item.image}" id="img-${item.id}" alt="${item.title}" class="w-full h-full object-contain scale-125 transition-all duration-300">
+                        <div id="bg-${item.id}" class="bg-[#0d0d0d] h-32 sm:h-48 rounded flex items-center justify-center mb-2 sm:mb-4 border border-mono-800 transition-colors duration-300 relative overflow-hidden">
+                            <img src="${item.image}" id="img-${item.id}" alt="${item.title}" class="w-full h-full object-contain scale-125 transition-all duration-300" style="filter: invert(1);">
                         </div>
                         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-baseline mb-1"><h3 class="font-bold text-white text-[10px] sm:text-sm truncate w-full">${item.title.toUpperCase()}</h3><span class="font-mono text-[10px] sm:text-sm font-bold text-white">${item.price} zł</span></div>
                         <p class="text-[9px] sm:text-xs text-mono-400 mb-3 sm:mb-4">Wymiary: ${item.dims}</p>
@@ -449,7 +428,7 @@
                         <div class="mb-3 sm:mb-5">
                             <span class="block text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-mono-400 mb-1 sm:mb-2">Kolor:</span>
                             <div class="grid grid-cols-3 gap-1 sm:gap-1.5">
-                                ${CATALOG_COLORS.map((c,i) => `<button type="button" onclick="changeCatColor(event, this, '${c.foil}', '${c.name}')" class="border ${i===0 ? 'border-white bg-mono-800 text-white' : 'border-mono-800 bg-mono-950 text-mono-400'} py-1 px-0.5 sm:py-1.5 sm:px-1 rounded-sm text-[9px] sm:text-[11px] font-semibold flex items-center justify-center space-x-1 transition"><span class="w-2 h-2 rounded-full ${c.dot}"></span><span>${c.name}</span></button>`).join('')}
+                                ${CATALOG_COLORS.map((c,i) => `<button type="button" onclick="changeCatColor(event, this, '${c.name}')" class="border ${i===0 ? 'border-white bg-mono-800 text-white' : 'border-mono-800 bg-mono-950 text-mono-400'} py-1 px-0.5 sm:py-1.5 sm:px-1 rounded-sm text-[9px] sm:text-[11px] font-semibold flex items-center justify-center space-x-1 transition"><span class="w-2 h-2 rounded-full ${c.dot}"></span><span>${c.name}</span></button>`).join('')}
                             </div>
                         </div>
                     </div>
@@ -458,23 +437,26 @@
             }).join('');
         }
 
-        window.changeCatColor = function(e, btn, foilClass, colorName) {
+        window.changeCatColor = function(e, btn, colorName) {
             e.preventDefault();
             const card = btn.closest('.catalog-card');
-            card.dataset.selectedColor = colorName;
             
             card.querySelectorAll('button[onclick^="changeCatColor"]').forEach(b => b.className = 'border border-mono-800 bg-mono-950 text-mono-400 py-1 px-0.5 sm:py-1.5 sm:px-1 rounded-sm text-[9px] sm:text-[11px] font-semibold flex items-center justify-center space-x-1 transition');
             btn.className = 'border border-white bg-mono-800 text-white py-1 px-0.5 sm:py-1.5 sm:px-1 rounded-sm text-[9px] sm:text-[11px] font-semibold flex items-center justify-center space-x-1 transition';
 
             const img = card.querySelector('img');
-            if (!img) return;
+            const bg = card.querySelector('div[id^="bg-"]');
+            if (!img || !bg) return;
 
-            img.style.filter = 'none';
-
-            if (colorName === 'Czarny') {
-                img.style.filter = 'invert(1)';
+            if (colorName === 'Biały') {
+                img.style.filter = 'invert(1)'; 
+                bg.style.backgroundColor = '#0d0d0d'; 
+            } else if (colorName === 'Czarny') {
+                img.style.filter = 'none'; 
+                bg.style.backgroundColor = '#ffffff'; 
             } else if (colorName === 'Chrom') {
                 img.style.filter = 'invert(1) drop-shadow(0px 0px 4px rgba(255,255,255,0.9)) drop-shadow(0px 0px 8px rgba(255,255,255,0.5))';
+                bg.style.backgroundColor = '#0d0d0d';
             }
         };
 
