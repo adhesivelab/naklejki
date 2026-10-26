@@ -1,211 +1,488 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" class="dark" style="color-scheme: dark;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADHESIVE LAB // KATALOG I KREATOR</title>
-    <link rel="icon" type="image/png" href="favicon.png">
+    <title>ADHESIVE — Naklejki Samochodowe na Zamówienie</title>
+    <meta name="description" content="Spersonalizowane naklejki samochodowe z folii Oracal 641. Kreator social handle, gotowe wzory streetwear & JDM. Zamówienia przez Instagram.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@300;400;600;800;900&family=Montserrat:ital,wght@0,800;0,900;1,900&family=UnifrakturMaguntia&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: {
+                colors: { mono: { 50:'#f8f8f8',100:'#e8e8e8',200:'#d1d1d1',300:'#a3a3a3',400:'#737373',500:'#525252',600:'#3a3a3a',700:'#262626',800:'#171717',900:'#0d0d0d',950:'#050505' } },
+                fontFamily: { sans:['Inter','sans-serif'], street:['Montserrat','sans-serif'], racing:['Orbitron','sans-serif'], gothic:['UnifrakturMaguntia','serif'], script:['Cinzel','serif'] }
+            }}
+        }
+    </script>
+
     <style>
-        :root { --bg-black: #050505; --card-black: #0d0d0d; --border-dark: #222222; --text-white: #f5f5f5; --text-gray: #777777; --accent-white: #ffffff; --accent-new: #4ade80; --accent-like: #ff4d6d; }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Space Grotesk', sans-serif; }
-        body { background-color: var(--bg-black); color: var(--text-white); min-height: 100vh; padding: 2rem 1rem; transition: background-color 0.3s ease, color 0.3s ease; }
-        .container { max-width: 1100px; margin: 0 auto; }
-        .mini-header { position: fixed; top: 0; left: 0; right: 0; background: rgba(5,5,5,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-dark); padding: 0.75rem 1rem; display: flex; align-items: center; justify-content: space-between; z-index: 998; transform: translateY(-100%); transition: transform 0.3s ease, background 0.3s ease; }
-        body.light .mini-header { background: rgba(245,245,245,0.85); }
-        .mini-header.is-visible { transform: translateY(0); }
-        .mini-header img { height: 28px; width: auto; filter: invert(1) brightness(1.2); transition: filter 0.3s ease; }
-        .mini-header a { font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-white); border: 1px solid var(--border-dark); padding: 0.4rem 0.8rem; text-decoration: none; }
-        header { text-align: center; margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center; }
-        .logo-img { max-width: 380px; width: 100%; height: auto; margin-bottom: 1.5rem; filter: invert(1) brightness(1.2); transform-style: preserve-3d; animation: spinLogo 12s linear infinite; transition: filter 0.3s ease; }
-        @keyframes spinLogo { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
-        .logo-img:hover { animation-play-state: paused; }
-        header > p { color: var(--text-gray); font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; }
-        .notice-bar { margin-top: 1.2rem; display: inline-block; border: 1px solid var(--border-dark); padding: 0.5rem 1.2rem; font-size: 0.75rem; letter-spacing: 1.5px; color: #aaa; text-transform: uppercase; text-decoration: none; }
-        .nav-tabs { display: flex; gap: 1rem; margin: 2rem auto 4rem; max-width: 800px; flex-wrap: wrap; justify-content: center; }
-        .nav-tab { flex: 1; min-width: 200px; padding: 1.5rem; background: var(--card-black); border: 1px solid var(--border-dark); color: var(--text-white); text-align: center; font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; cursor: pointer; border-radius: 4px; }
-        .nav-tab.active { background: var(--text-white); color: var(--bg-black); border-color: var(--text-white); }
-        .app-section { display: none; } .app-section.active { display: block; }
-        .search-bar { max-width: 400px; margin: 0 auto 1.5rem; }
-        .search-bar input { width: 100%; background: var(--card-black); border: 1px solid var(--border-dark); color: var(--text-white); padding: 0.7rem 1rem; border-radius: 4px; text-transform: uppercase; }
-        .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; justify-content: center; }
-        .chip { background: transparent; border: 1px solid var(--border-dark); color: var(--text-gray); padding: 0.4rem 0.9rem; cursor: pointer; border-radius: 4px; text-transform: uppercase; }
-        .chip.is-active { background: var(--text-white); color: var(--bg-black); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 5rem; }
-        .card { background-color: var(--card-black); border: 1px solid var(--border-dark); cursor: pointer; border-radius: 4px; overflow: hidden; }
-        .card-img { width: 100%; height: 280px; background: #111; display: flex; align-items: center; justify-content: center; position: relative; }
-        .card-img img { max-width: 100%; max-height: 100%; object-fit: contain; }
-        .like-btn { position: absolute; top: 0.5rem; right: 0.5rem; width: 34px; height: 34px; border-radius: 50%; background: rgba(0,0,0,0.6); border: 1px solid var(--border-dark); color: #fff; cursor: pointer; }
-        .like-btn.is-liked::before { content: '♥'; color: var(--accent-like); } .like-btn::before { content: '♡'; }
-        .card-info { padding: 1.2rem; display: flex; justify-content: space-between; }
-        .creator-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        .creator-panel { background: var(--card-black); border: 1px solid var(--border-dark); padding: 2rem; border-radius: 4px; }
-        .creator-input { width: 100%; background: var(--bg-black); border: 1px solid var(--border-dark); color: var(--text-white); padding: 1rem; border-radius: 4px; }
-        .options-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .opt-btn { background: transparent; border: 1px solid var(--border-dark); color: var(--text-white); padding: 0.6rem 1rem; cursor: pointer; border-radius: 4px; }
-        .opt-btn.active { border-color: var(--text-white); background: rgba(128,128,128,0.2); }
-        .creator-preview { background: #0a0a0a; border: 1px solid var(--border-dark); display: flex; align-items: center; justify-content: center; min-height: 400px; border-radius: 4px; }
-        .preview-sticker { display: flex; align-items: center; gap: 1rem; }
-        .preview-sticker svg { width: 48px; height: 48px; }
-        .preview-text { font-size: 2.5rem; font-weight: 700; }
-        .btn-black { background: var(--text-white); color: var(--bg-black); border: none; padding: 1rem; font-weight: 700; cursor: pointer; border-radius: 4px; width: 100%; margin-top: 1rem; }
-        .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        .guide-card { background: var(--card-black); border: 1px solid var(--border-dark); padding: 2rem; border-radius: 4px; }
-        body.light { --bg-black: #f5f5f5; --card-black: #ffffff; --border-dark: #e0e0e0; --text-white: #0a0a0a; --text-gray: #666666; --accent-white: #000000; }
-        body.light .logo-img, body.light .mini-header img { filter: none; }
-        body.light .card-img { background: #f0f0f0; }
-        body.light .creator-input { background: #fff; }
+        .font-streetwear { font-family:'Montserrat',sans-serif; font-weight:900; font-style:italic; letter-spacing:-.05em; text-transform:uppercase; }
+        .font-racing    { font-family:'Orbitron',sans-serif;  font-weight:900; font-style:italic; letter-spacing:.05em;  text-transform:uppercase; }
+        .font-minimal   { font-family:'Inter',sans-serif;     font-weight:800; letter-spacing:.2em;    text-transform:uppercase; }
+        .font-gothic    { font-family:'UnifrakturMaguntia',serif; font-weight:400; font-size:1.15em; }
+        .font-jdm       { font-family:'Montserrat',sans-serif; font-weight:900; font-style:italic; letter-spacing:-.02em; transform:skewX(-12deg); text-transform:uppercase; }
+        .font-logo-gothic { font-family:'UnifrakturMaguntia',serif; font-size:2rem; letter-spacing:-.02em; line-height:1; }
+
+        #logoStage { position: relative; height: 120px; display: flex; align-items: center; justify-content: center; background: transparent; border-bottom: 1px solid #171717; overflow: hidden; perspective: 800px; }
+        #dvdLogo { display: inline-block; color: #ffffff; text-shadow: 0 0 14px rgba(255,255,255,.3); transform-origin: center center; animation: logoSpin 6s linear infinite; will-change: transform; white-space: nowrap; padding: 0 8px; user-select: none; }
+        @keyframes logoSpin { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+        @media (prefers-reduced-motion: reduce) { #dvdLogo { animation: none; } }
+
+        .foil-white { color:#fff; text-shadow:0 0 10px rgba(255,255,255,.3); }
+        .foil-black { color:#111; text-shadow:0 0 1px #333; filter:drop-shadow(0 0 1px #fff); }
+        .foil-silver{ background:linear-gradient(135deg,#e6e6e6 0%,#fff 25%,#8e8e8e 50%,#e6e6e6 75%,#a3a3a3 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; filter:drop-shadow(0 1px 2px rgba(0,0,0,.8)); }
+        .foil-gold  { background:linear-gradient(135deg,#bf953f 0%,#fcf6ba 25%,#b38728 50%,#fbf5b7 75%,#aa771c 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; filter:drop-shadow(0 1px 2px rgba(0,0,0,.8)); }
+        .foil-red   { background:linear-gradient(135deg,#ff1a1a 0%,#b30000 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; filter:drop-shadow(0 0 6px rgba(255,0,0,.5)); }
+        .foil-holo  { background:linear-gradient(115deg,#ff007f,#7f00ff,#00f0ff,#00ff7f,#ffee00,#ff007f); background-size:200% 200%; animation:holoShift 4s ease infinite; -webkit-background-clip:text; -webkit-text-fill-color:transparent; filter:drop-shadow(0 0 8px rgba(255,255,255,.4)); }
+        @keyframes holoShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+        .bg-car-glass { background-color:#0b0d0e; background-image:radial-gradient(ellipse at top,rgba(255,255,255,.08) 0%,rgba(0,0,0,.85) 80%),linear-gradient(180deg,rgba(20,24,28,.9) 0%,rgba(5,6,8,.98) 100%); position:relative; }
+        .bg-carbon { background:radial-gradient(black 15%,transparent 16%) 0 0,radial-gradient(black 15%,transparent 16%) 8px 8px,radial-gradient(rgba(255,255,255,.1) 15%,transparent 20%) 0 1px,radial-gradient(rgba(255,255,255,.1) 15%,transparent 20%) 8px 9px; background-color:#121212; background-size:16px 16px; }
+        .bg-cutter-grid { background-color:#1e1e24; background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px); background-size:20px 20px; }
+
+        ::-webkit-scrollbar{width:6px;height:6px}
+        ::-webkit-scrollbar-track{background:#0a0a0a}
+        ::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
+        
+        .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+        :focus-visible{outline:2px solid #fff;outline-offset:2px}
+
+        .catalog-card{transition:transform .2s ease, box-shadow .2s ease}
+        .catalog-card:hover{transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,.5)}
+
+        /* Style dla trybu jasnego */
+        html.light { color-scheme: light; }
+        html.light body { background-color: #f5f5f5; color: #0a0a0a; }
+        html.light header, html.light .bg-mono-900, html.light .bg-mono-950 { background-color: #ffffff !important; border-color: #e0e0e0 !important; }
+        html.light .text-mono-100, html.light .text-mono-200, html.light .text-mono-300 { color: #171717 !important; }
+        html.light .text-mono-400, html.light .text-mono-500 { color: #555555 !important; }
+        html.light #dvdLogo { color: #0a0a0a; text-shadow: none; }
+        html.light .bg-mono-800 { background-color: #eeeeee !important; }
+        html.light .border-mono-800, html.light .border-mono-700 { border-color: #d1d1d1 !important; }
     </style>
 </head>
-<body>
-    <div class="mini-header" id="miniHeader">
-        <img src="logo.png" alt="LOGO">
-        <a href="https://instagram.com/adhesive.lab" target="_blank">DM → ZAMÓW</a>
+<body class="bg-mono-950 text-mono-100 font-sans antialiased min-h-screen flex flex-col transition-colors duration-300 selection:bg-white selection:text-black">
+
+    <div class="bg-mono-900 border-b border-mono-800 text-xs py-2 px-4 text-center tracking-wider text-mono-300 font-medium transition-colors">
+        <span class="inline-block bg-white text-black text-[10px] font-bold px-1.5 py-0.5 rounded mr-2 tracking-widest">DARMOWA DOSTAWA</span>
+        Dla zamówień od 120 PLN | Realizacja 24h | Folie Oracal 641 Premium
     </div>
 
-    <div class="container">
-        <header>
-            <img src="logo.png" alt="LOGO" class="logo-img">
-            <p>ARCHIWUM // KATALOG NAKLEJEK</p>
-        </header>
-
-        <div class="nav-tabs">
-            <button class="nav-tab" data-target="section-creator">KREATOR</button>
-            <button class="nav-tab active" data-target="section-catalog">GOTOWE WZORY</button>
-            <button class="nav-tab" data-target="section-guide">INSTRUKCJA</button>
+    <!-- HEADER -->
+    <header class="sticky top-0 z-40 bg-mono-950/95 backdrop-blur-md border-b border-mono-800 transition-colors">
+        <div id="logoStage">
+            <a id="dvdLogo" href="#" aria-label="ADHESIVE — strona główna" class="font-logo-gothic">adhesive</a>
         </div>
 
-        <div id="section-creator" class="app-section">
-            <div class="creator-layout">
-                <div class="creator-panel">
-                    <h4>1. TREŚĆ NAKLEJKI</h4>
-                    <input type="text" id="handleText" class="creator-input" value="@twoj_nick">
-                    <h4>2. IKONA</h4>
-                    <div class="options-grid" id="iconOptions">
-                        <button class="opt-btn active" data-icon="instagram">📷 Instagram</button>
-                        <button class="opt-btn" data-icon="tiktok">🎵 TikTok</button>
-                        <button class="opt-btn" data-icon="none">🚫 Brak</button>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-center transition-colors">
+            <!-- NOWE KAFELKI NAWIGACJI -->
+            <nav class="flex items-center justify-center gap-2 sm:gap-3 text-sm font-semibold tracking-wider" aria-label="Nawigacja główna">
+                <button onclick="switchView('creator')" id="nav-creator" class="nav-tab px-4 py-2 rounded-sm uppercase text-[11px] sm:text-xs transition border-2 border-white bg-white text-black font-bold">Kreator</button>
+                <button onclick="switchView('catalog')" id="nav-catalog" class="nav-tab px-4 py-2 rounded-sm uppercase text-[11px] sm:text-xs transition border border-mono-800 bg-mono-900 hover:bg-mono-800 text-mono-200">Gotowe Wzory</button>
+                <button onclick="switchView('instructions')" id="nav-instructions" class="nav-tab px-4 py-2 rounded-sm uppercase text-[11px] sm:text-xs transition border border-mono-800 bg-mono-900 hover:bg-mono-800 text-mono-200">Instrukcja</button>
+            </nav>
+
+            <!-- Przycisk trybu ciemnego/jasnego -->
+            <button id="themeToggleBtn" class="absolute right-16 sm:right-20 lg:right-24 top-1/2 -translate-y-1/2 p-2.5 bg-mono-900 hover:bg-mono-800 border border-mono-800 text-white rounded-sm transition flex items-center justify-center" aria-label="Zmień motyw">
+                <i class="fa-solid fa-moon text-base text-mono-200" id="themeIcon" aria-hidden="true"></i>
+            </button>
+
+            <!-- Zamiast koszyka - przycisk DM -->
+            <a href="https://ig.me/m/adhesive.lab" target="_blank" rel="noopener" class="absolute right-4 sm:right-6 lg:right-8 top-1/2 -translate-y-1/2 px-3 py-2 bg-white hover:bg-gray-200 text-black font-bold rounded-sm transition flex items-center justify-center text-xs tracking-wider uppercase shadow-md" aria-label="Napisz na Instagramie">
+                <i class="fa-brands fa-instagram text-base mr-1.5" aria-hidden="true"></i> DM
+            </a>
+        </div>
+    </header>
+
+    <!-- SEKCJA 1: KREATOR -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 app-section" id="sec-creator">
+        <div class="mb-8 border-b border-mono-800 pb-4 flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+                <div class="flex items-center space-x-2 text-xs uppercase tracking-widest text-mono-400 font-bold mb-1"><span class="w-2 h-2 bg-white inline-block"></span><span>Kreator Spersonalizowany</span></div>
+                <h1 class="text-3xl sm:text-4xl font-black text-white font-street tracking-tight">STWÓRZ WŁASNY SOCIAL HANDLE</h1>
+            </div>
+            <div class="text-xs text-mono-400 max-w-md space-y-1">
+                <p>Wybierz własny nick Instagram/TikTok, dopasuj czcionkę, wymiary oraz kolor folii Oracal 641 z natychmiastowym podglądem.</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-5 space-y-6 bg-mono-900/60 p-6 rounded-md border border-mono-800 transition-colors">
+                <div>
+                    <label for="stickerTextInput" class="block text-xs uppercase tracking-wider text-mono-300 font-bold mb-2">1. Treść naklejki (Twój nick)</label>
+                    <div class="relative">
+                        <input type="text" id="stickerTextInput" value="@twoj_nick" maxlength="30" placeholder="@nazwa_profilu" class="w-full bg-mono-950 border border-mono-700 text-white text-base px-4 py-3 pr-16 rounded-sm focus:outline-none focus:border-white transition font-mono tracking-wider">
+                        <span id="textCharCount" class="absolute right-3 top-3.5 text-xs text-mono-500 font-mono" aria-live="polite">10/30</span>
                     </div>
-                    <h4>3. KOLOR</h4>
-                    <div class="options-grid" id="colorOptions">
-                        <button class="opt-btn active" data-color="#ffffff">Biały</button>
-                        <button class="opt-btn" data-color="#000000">Czarny</button>
-                        <button class="opt-btn" data-color="gold">Złoty</button>
-                        <button class="opt-btn" data-color="holo">Holo</button>
-                    </div>
-                    <button class="btn-black" id="addToCartBtn">ZAMÓW PRZEZ DM</button>
                 </div>
-                <div class="creator-preview">
-                    <div class="preview-sticker" id="stickerPreview">
-                        <svg id="previewIcon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                        <span class="preview-text" id="previewText" style="color: #ffffff;">@TWOJ_NICK</span>
+
+                <div>
+                    <span class="block text-xs uppercase tracking-wider text-mono-300 font-bold mb-2">2. Wybierz Ikonę</span>
+                    <div class="grid grid-cols-5 gap-2" id="iconPickerGroup">
+                        <button type="button" data-icon="instagram" class="icon-btn active border-2 border-white bg-mono-800 p-3 text-white rounded-sm flex flex-col items-center justify-center transition"><i class="fa-brands fa-instagram text-xl"></i><span class="text-[9px] mt-1 uppercase font-bold">Insta</span></button>
+                        <button type="button" data-icon="tiktok" class="icon-btn border border-mono-800 bg-mono-950 p-3 text-mono-400 rounded-sm flex flex-col items-center justify-center hover:text-white transition"><i class="fa-brands fa-tiktok text-xl"></i><span class="text-[9px] mt-1 uppercase font-bold">TikTok</span></button>
+                        <button type="button" data-icon="youtube" class="icon-btn border border-mono-800 bg-mono-950 p-3 text-mono-400 rounded-sm flex flex-col items-center justify-center hover:text-white transition"><i class="fa-brands fa-youtube text-xl"></i><span class="text-[9px] mt-1 uppercase font-bold">YT</span></button>
+                        <button type="button" data-icon="facebook" class="icon-btn border border-mono-800 bg-mono-950 p-3 text-mono-400 rounded-sm flex flex-col items-center justify-center hover:text-white transition"><i class="fa-brands fa-facebook-f text-xl"></i><span class="text-[9px] mt-1 uppercase font-bold">FB</span></button>
+                        <button type="button" data-icon="none" class="icon-btn border border-mono-800 bg-mono-950 p-3 text-mono-400 rounded-sm flex flex-col items-center justify-center hover:text-white transition"><i class="fa-solid fa-ban text-xl"></i><span class="text-[9px] mt-1 uppercase font-bold">Brak</span></button>
+                    </div>
+                </div>
+
+                <div>
+                    <span class="block text-xs uppercase tracking-wider text-mono-300 font-bold mb-2">3. Styl Czcionki</span>
+                    <div class="grid grid-cols-1 gap-2" id="fontPickerGroup">
+                        <button type="button" data-font="font-streetwear" data-font-name="Streetwear" class="font-btn active border-2 border-white bg-mono-800 p-2.5 text-left rounded-sm flex items-center justify-between transition"><span class="text-xs text-mono-300 font-sans">Streetwear</span><span class="font-streetwear text-sm text-white">SAMPLE 1</span></button>
+                        <button type="button" data-font="font-jdm" data-font-name="JDM" class="font-btn border border-mono-800 bg-mono-950 p-2.5 text-left rounded-sm flex items-center justify-between hover:border-mono-600 transition"><span class="text-xs text-mono-300 font-sans">JDM</span><span class="font-jdm text-sm text-white">SAMPLE 2</span></button>
+                        <button type="button" data-font="font-racing" data-font-name="Racing" class="font-btn border border-mono-800 bg-mono-950 p-2.5 text-left rounded-sm flex items-center justify-between hover:border-mono-600 transition"><span class="text-xs text-mono-300 font-sans">Racing</span><span class="font-racing text-sm text-white">SAMPLE 3</span></button>
+                        <button type="button" data-font="font-gothic" data-font-name="Gothic" class="font-btn border border-mono-800 bg-mono-950 p-2.5 text-left rounded-sm flex items-center justify-between hover:border-mono-600 transition"><span class="text-xs text-mono-300 font-sans">Gothic</span><span class="font-gothic text-base text-white">Sample 4</span></button>
+                        <button type="button" data-font="font-minimal" data-font-name="Minimal" class="font-btn border border-mono-800 bg-mono-950 p-2.5 text-left rounded-sm flex items-center justify-between hover:border-mono-600 transition"><span class="text-xs text-mono-300 font-sans">Minimal</span><span class="font-minimal text-xs text-white">SAMPLE 5</span></button>
+                    </div>
+                </div>
+
+                <div>
+                    <span class="block text-xs uppercase tracking-wider text-mono-300 font-bold mb-2">4. Kolor Folii</span>
+                    <div class="grid grid-cols-3 gap-2" id="colorPickerGroup">
+                        <button type="button" data-color="white" data-color-name="Biały" data-price-modifier="1.0" class="color-btn active border-2 border-white bg-mono-800 p-2 rounded-sm flex items-center space-x-2 transition"><span class="w-4 h-4 rounded-full bg-white border border-mono-400"></span><span class="text-xs font-semibold text-white">Biały</span></button>
+                        <button type="button" data-color="black" data-color-name="Czarny" data-price-modifier="1.0" class="color-btn border border-mono-800 bg-mono-950 p-2 rounded-sm flex items-center space-x-2 hover:border-mono-600 transition"><span class="w-4 h-4 rounded-full bg-mono-900 border border-mono-500"></span><span class="text-xs font-semibold text-mono-300">Czarny</span></button>
+                        <button type="button" data-color="silver" data-color-name="Srebrny" data-price-modifier="1.1" class="color-btn border border-mono-800 bg-mono-950 p-2 rounded-sm flex items-center space-x-2 hover:border-mono-600 transition"><span class="w-4 h-4 rounded-full bg-gradient-to-r from-gray-300 via-white to-gray-400"></span><span class="text-xs font-semibold text-mono-300">Srebrny</span></button>
+                        <button type="button" data-color="gold" data-color-name="Złoty" data-price-modifier="1.15" class="color-btn border border-mono-800 bg-mono-950 p-2 rounded-sm flex items-center space-x-2 hover:border-mono-600 transition"><span class="w-4 h-4 rounded-full bg-gradient-to-r from-yellow-500 via-amber-200 to-yellow-600"></span><span class="text-xs font-semibold text-mono-300">Złoty</span></button>
+                        <button type="button" data-color="red" data-color-name="Czerwony" data-price-modifier="1.1" class="color-btn border border-mono-800 bg-mono-950 p-2 rounded-sm flex items-center space-x-2 hover:border-mono-600 transition"><span class="w-4 h-4 rounded-full bg-red-600"></span><span class="text-xs font-semibold text-mono-300">Czerwony</span></button>
+                        <button type="button" data-color="holo" data-color-name="Holo" data-price-modifier="1.3" class="color-btn border border-mono-800 bg-mono-950 p-2 rounded-sm flex items-center space-x-2 hover:border-mono-600 transition"><span class="w-4 h-4 rounded-full bg-gradient-to-r from-pink-500 via-teal-300 to-indigo-500"></span><span class="text-xs font-semibold text-mono-300">Holo 🌈</span></button>
+                    </div>
+                </div>
+
+                <div>
+                    <span class="block text-xs uppercase tracking-wider text-mono-300 font-bold mb-2">5. Rozmiar</span>
+                    <div class="grid grid-cols-6 gap-2" id="sizePickerGroup">
+                        <button type="button" data-size="15" data-base-price="19" class="size-btn border border-mono-800 bg-mono-950 py-2 rounded-sm text-xs font-mono font-bold hover:border-mono-600 transition">15 cm</button>
+                        <button type="button" data-size="20" data-base-price="24" class="size-btn active border-2 border-white bg-mono-800 py-2 rounded-sm text-xs font-mono font-bold text-white transition">20 cm</button>
+                        <button type="button" data-size="25" data-base-price="29" class="size-btn border border-mono-800 bg-mono-950 py-2 rounded-sm text-xs font-mono font-bold hover:border-mono-600 transition">25 cm</button>
+                        <button type="button" data-size="30" data-base-price="35" class="size-btn border border-mono-800 bg-mono-950 py-2 rounded-sm text-xs font-mono font-bold hover:border-mono-600 transition">30 cm</button>
+                        <button type="button" data-size="40" data-base-price="45" class="size-btn border border-mono-800 bg-mono-950 py-2 rounded-sm text-xs font-mono font-bold hover:border-mono-600 transition">40 cm</button>
+                        <button type="button" data-size="50" data-base-price="59" class="size-btn border border-mono-800 bg-mono-950 py-2 rounded-sm text-xs font-mono font-bold hover:border-mono-600 transition">50 cm</button>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-mono-800 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-mono-400 uppercase tracking-wider font-bold">Cena:</span>
+                            <div id="dynamicPriceDisplay" class="text-3xl font-black text-white font-mono" aria-live="polite">24,00 zł</div>
+                        </div>
+                        <div class="flex items-center space-x-2 border border-mono-700 rounded-sm bg-mono-950 p-1">
+                            <button type="button" id="qtyMinus" class="w-8 h-8 flex items-center justify-center text-mono-400 hover:text-white font-bold">−</button>
+                            <span id="qtyVal" class="w-8 text-center text-sm font-mono font-bold text-white" aria-live="polite">1</span>
+                            <button type="button" id="qtyPlus" class="w-8 h-8 flex items-center justify-center text-mono-400 hover:text-white font-bold">+</button>
+                        </div>
+                    </div>
+                    <button type="button" id="orderViaIgBtn" class="w-full bg-white text-black hover:bg-mono-200 py-4 font-black tracking-widest text-sm uppercase transition flex items-center justify-center space-x-3 rounded-sm shadow-lg active:scale-[0.99]"><i class="fa-brands fa-instagram text-lg"></i><span>ZAMÓW NA INSTAGRAMIE</span></button>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 flex flex-col">
+                <div class="bg-mono-900 border border-mono-800 rounded-md p-4 flex-grow flex flex-col justify-between transition-colors">
+                    <div class="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-mono-800">
+                        <div class="flex items-center space-x-2"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span><span class="text-xs text-mono-300 font-mono uppercase">Podgląd na żywo</span></div>
+                        <div class="flex items-center space-x-1 bg-mono-950 p-1 rounded border border-mono-800" id="bgModeSwitcher">
+                            <button type="button" data-mode="glass" class="bg-btn active px-3 py-1.5 text-[11px] font-bold rounded-sm text-white bg-mono-800 border border-mono-700 flex items-center space-x-1.5"><i class="fa-solid fa-car"></i><span>Szyba</span></button>
+                            <button type="button" data-mode="carbon" class="bg-btn px-3 py-1.5 text-[11px] font-bold rounded-sm text-mono-400 hover:text-white transition flex items-center space-x-1.5"><i class="fa-solid fa-cubes"></i><span>Karbon</span></button>
+                            <button type="button" data-mode="grid" class="bg-btn px-3 py-1.5 text-[11px] font-bold rounded-sm text-mono-400 hover:text-white transition flex items-center space-x-1.5"><i class="fa-solid fa-border-top-left"></i><span>Siatka</span></button>
+                        </div>
+                    </div>
+
+                    <div id="mockupCanvasContainer" class="bg-car-glass min-h-[360px] sm:min-h-[440px] rounded flex flex-col items-center justify-center p-6 sm:p-12 transition-all relative overflow-hidden border border-mono-800">
+                        <div id="glassOverlay" class="absolute inset-0 pointer-events-none flex flex-col justify-between p-4">
+                            <div class="flex justify-between items-center opacity-30 text-[10px] font-mono tracking-widest text-mono-400"><span>/// ADHESIVE MOCKUP</span><span>PREMIUM 641</span></div>
+                        </div>
+                        <div id="stickerPreviewWrapper" class="relative z-10 flex items-center justify-center space-x-3 transition-transform duration-200 w-full px-4">
+                            <i id="previewIcon" class="fa-brands fa-instagram text-4xl sm:text-6xl foil-white transition-all"></i>
+                            <span id="previewText" class="font-streetwear text-3xl sm:text-5xl foil-white tracking-normal transition-all whitespace-nowrap">@twoj_nick</span>
+                        </div>
+                        <div class="absolute bottom-4 left-6 right-6 flex items-center space-x-2 text-mono-500 font-mono text-[11px]">
+                            <div class="h-2 w-px bg-mono-600"></div>
+                            <div class="h-px bg-mono-700 flex-grow relative flex items-center justify-center"><span id="rulerWidthText" class="bg-mono-900 px-2 text-mono-300 font-bold border border-mono-800 rounded">20 cm</span></div>
+                            <div class="h-2 w-px bg-mono-600"></div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs font-mono">
+                        <div class="bg-mono-950 p-2.5 rounded border border-mono-800"><span class="block text-mono-500 text-[10px]">WYMIARY</span><span id="specDim" class="font-bold text-mono-200">20.0 x 3.2 cm</span></div>
+                        <div class="bg-mono-950 p-2.5 rounded border border-mono-800"><span class="block text-mono-500 text-[10px]">FOLIA</span><span id="specFoil" class="font-bold text-mono-200">Oracal 641</span></div>
+                        <div class="bg-mono-950 p-2.5 rounded border border-mono-800"><span class="block text-mono-500 text-[10px]">TRWAŁOŚĆ</span><span class="font-bold text-mono-200">3-5 Lat</span></div>
+                        <div class="bg-mono-950 p-2.5 rounded border border-mono-800"><span class="block text-mono-500 text-[10px]">APLIKACJA</span><span class="font-bold text-mono-200">Na Zimno</span></div>
                     </div>
                 </div>
             </div>
         </div>
+    </main>
 
-        <div id="section-catalog" class="app-section active">
-            <div class="search-bar"><input type="search" id="searchInput" placeholder="SZUKAJ..."></div>
-            <nav class="filters" id="filters"></nav>
-            <div class="grid" id="stickerGrid"></div>
-        </div>
-
-        <div id="section-guide" class="app-section">
-            <h2 style="text-align:center; margin-bottom:2rem;">JAK NAKLEIĆ FOLIĘ?</h2>
-            <div class="guide-grid">
-                <div class="guide-card"><h3>01</h3><h5>ODTŁUSZCZENIE</h5><p>Umyj powierzchnię alkoholem (IPA).</p></div>
-                <div class="guide-card"><h3>02</h3><h5>DOCISK</h5><p>Dociskaj folię transferową ręką.</p></div>
-                <div class="guide-card"><h3>03</h3><h5>APLIKACJA</h5><p>Odklej podkład i przyklej.</p></div>
-                <div class="guide-card"><h3>04</h3><h5>ZDEJMOWANIE</h5><p>Powoli odklejaj taśmę.</p></div>
+    <!-- SEKCJA 2: KATALOG -->
+    <section class="app-section border-t border-mono-800 bg-mono-900/40 py-16 hidden transition-colors" id="sec-catalog">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-mono-800">
+                <div><span class="text-xs uppercase tracking-widest text-mono-400 font-bold">Kolekcja Streetwear & Tuner</span><h2 class="text-2xl sm:text-3xl font-black text-white font-street tracking-tight mt-1">GOTOWE WZORY NAKLEJEK</h2></div>
+                <div class="relative w-full md:w-64 mt-4 md:mt-0">
+                    <input type="text" id="searchCatalog" placeholder="Szukaj wzoru..." class="w-full bg-mono-950 border border-mono-800 text-white px-3 py-2 pr-8 text-sm rounded focus:outline-none focus:border-white">
+                    <i class="fa-solid fa-magnifying-glass absolute right-3 top-3 text-mono-500 text-xs"></i>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="catalogGrid">
+                <!-- Karty generowane przez JS -->
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- SEKCJA 3: INSTRUKCJA -->
+    <section class="app-section py-16 border-t border-mono-800 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hidden transition-colors" id="sec-instructions">
+        <div class="text-center max-w-2xl mx-auto mb-12"><span class="text-xs uppercase tracking-widest text-mono-400 font-bold">Poradnik Aplikacji</span><h2 class="text-3xl font-black text-white font-street tracking-tight mt-1">JAK PRAWIDŁOWO NAKLEIĆ FOLIE?</h2><p class="text-xs text-mono-400 mt-2">Postępuj zgodnie z tą instrukcją, aby zapewnić trwałość naklejki do 5 lat bez pęcherzyków powietrza.</p></div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="bg-mono-900/50 p-6 rounded border border-mono-800 transition-colors"><div class="text-3xl font-black text-mono-700 font-mono mb-3">01</div><h3 class="text-sm font-bold text-white mb-2">Odtłuszczenie</h3><p class="text-xs text-mono-400 leading-relaxed">Umyj i dokładnie odtłuść powierzchnię szyby/lakieru alkoholem izopropylowym (IPA) lub płynem do szyb na bazie alkoholu.</p></div>
+            <div class="bg-mono-900/50 p-6 rounded border border-mono-800 transition-colors"><div class="text-3xl font-black text-mono-700 font-mono mb-3">02</div><h3 class="text-sm font-bold text-white mb-2">Docisk Transportu</h3><p class="text-xs text-mono-400 leading-relaxed">Przed odklejeniem mocno dociskaj przeźroczystą folię transferową raklą lub kartą bankomatową, aby naklejka mocno do niej przywarła.</p></div>
+            <div class="bg-mono-900/50 p-6 rounded border border-mono-800 transition-colors"><div class="text-3xl font-black text-mono-700 font-mono mb-3">03</div><h3 class="text-sm font-bold text-white mb-2">Aplikacja na ZIMNO</h3><p class="text-xs text-mono-400 leading-relaxed">Odklej podkład papierowy pod ostrym kątem. Przyklej naklejkę na równą powierzchnię i mocno rozmasuj od środka do brzegów.</p></div>
+            <div class="bg-mono-900/50 p-6 rounded border border-mono-800 transition-colors"><div class="text-3xl font-black text-mono-700 font-mono mb-3">04</div><h3 class="text-sm font-bold text-white mb-2">Zdjęcie Folii</h3><p class="text-xs text-mono-400 leading-relaxed">Powoli odklejaj przeźroczystą taśmą ciągnąc płasko przy samej szybie. Gotowe! Nie myj auta przez pierwsze 24h.</p></div>
+        </div>
+    </section>
+
+    <!-- STOPKA -->
+    <footer class="border-t border-mono-800 bg-mono-950 py-10 mt-auto transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <span class="font-logo-gothic text-white text-base">adhesive</span>
+            <p class="text-xs text-mono-500">© 2026 ADHESIVE Decals & Custom Cutters. Wszystkie prawa zastrzeżone.</p>
+            <div class="flex space-x-4 text-mono-400 text-lg">
+                <a href="https://instagram.com/adhesive.lab" target="_blank" rel="noopener" class="hover:text-white transition" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-white transition" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 sm:left-auto sm:right-6 sm:translate-x-0 bg-white text-black px-5 py-3 rounded shadow-2xl font-bold text-xs uppercase tracking-wider flex items-center space-x-3 transform translate-y-24 opacity-0 transition-all z-50" role="status" aria-live="polite"><i class="fa-solid fa-circle-check text-base"></i><span id="toastMsg">Gotowe!</span></div>
+
     <script>
-        const INSTAGRAM_USERNAME = "adhesive.lab";
-        const stickers = [
-            { id: 1, title: "TRIBAL SKULL", category: "HOLO", images: ["https://picsum.photos/id/1062/400/400"] },
-            { id: 2, title: "CHROME STAR", category: "CHROM", images: ["https://picsum.photos/id/1069/400/400"] }
+    (function() {
+        'use strict';
+
+        const INSTAGRAM_USERNAME = "adhesive.lab"; // Zmień, jeśli potrzebujesz
+        const pln = new Intl.NumberFormat('pl-PL', { style:'currency', currency:'PLN' });
+        const fmt = (v) => pln.format(v).replace(/\u00A0/g, ' ');
+        const $ = (sel, root=document) => root.querySelector(sel);
+        const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+        const CATALOG = [
+            { id:'cat-1', title:'ANTY STOCK CARS CLUB', fontClass:'font-streetwear', price:29, size:'25cm', dims:'25 × 3.5 cm' },
+            { id:'cat-2', title:'Hunter Of Night',      fontClass:'font-gothic',     price:25, size:'20cm', dims:'20 × 4.0 cm' },
+            { id:'cat-3', title:'LOCAL HERO',           fontClass:'font-racing',     price:22, size:'20cm', dims:'20 × 3.0 cm' },
+            { id:'cat-4', title:'LOW & SLOW ///',       fontClass:'font-jdm',        price:24, size:'20cm', dims:'20 × 3.2 cm' },
         ];
-        let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+        const CATALOG_COLORS = [
+            { name:'Biały', foil:'foil-white', dot:'bg-white border border-mono-400' },
+            { name:'Czarny', foil:'foil-black', dot:'bg-mono-900 border border-mono-500' },
+            { name:'Chrom', foil:'foil-silver', dot:'bg-gradient-to-r from-gray-300 via-white to-gray-400' },
+        ];
 
-        // NAWIGACJA
-        document.querySelectorAll('.nav-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                document.querySelectorAll('.app-section').forEach(sec => sec.classList.remove('active'));
-                document.getElementById(tab.dataset.target).classList.add('active');
-            });
-        });
-
-        // KREATOR
-        const previewIcon = document.getElementById('previewIcon');
-        const previewText = document.getElementById('previewText');
-        const handleText = document.getElementById('handleText');
-
-        const icons = {
-            instagram: '<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>',
-            tiktok: '<path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>',
-            none: ''
+        const state = {
+            text:'@twoj_nick', icon:'instagram', fontClass:'font-streetwear', fontName:'Streetwear',
+            color:'white', colorName:'Biały', colorModifier:1.0, sizeCm:20, basePrice:24, quantity:1, bgMode:'glass'
         };
 
-        handleText.addEventListener('input', (e) => { previewText.textContent = e.target.value.toUpperCase(); });
-        
-        document.querySelectorAll('#iconOptions .opt-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('#iconOptions .opt-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                previewIcon.innerHTML = icons[btn.dataset.icon];
+        // --- NAWIGACJA ZAKŁADEK ---
+        window.switchView = function(viewName) {
+            $$('.app-section').forEach(el => el.classList.add('hidden'));
+            $$('.nav-tab').forEach(btn => {
+                btn.className = 'nav-tab px-4 py-2 rounded-sm uppercase text-[11px] sm:text-xs transition border border-mono-800 bg-mono-900 hover:bg-mono-800 text-mono-200';
             });
-        });
 
-        document.querySelectorAll('#colorOptions .opt-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('#colorOptions .opt-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const color = btn.dataset.color;
-                if(color === 'holo') {
-                    previewText.style.background = 'linear-gradient(45deg, #ff00cc, #3333ff, #00ffcc)';
-                    previewText.style.webkitBackgroundClip = 'text';
-                    previewText.style.color = 'transparent';
-                } else {
-                    previewText.style.background = 'none';
-                    previewText.style.color = color;
-                    previewIcon.style.fill = color;
-                }
-            });
-        });
+            if(viewName === 'creator') { $('#sec-creator').classList.remove('hidden'); $('#nav-creator').className = 'nav-tab px-4 py-2 rounded-sm uppercase text-[11px] sm:text-xs transition border-2 border-white bg-white text-black font-bold'; }
+            if(viewName === 'catalog') { $('#sec-catalog').classList.remove('hidden'); $('#nav-catalog').className = 'nav-tab px-4 py-2 rounded-sm uppercase text-[11px] sm:text-xs transition border-2 border-white bg-white text-black font-bold'; }
+            if(viewName === 'instructions') { $('#sec-instructions').classList.remove('hidden'); $('#nav-instructions').className = 'nav-tab px-4 py-2 rounded-sm uppercase text-[11px] sm:text-xs transition border-2 border-white bg-white text-black font-bold'; }
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        };
 
-        document.getElementById('addToCartBtn').addEventListener('click', () => {
-            const text = `Siema! Chcę zamówić naklejkę z tekstem: ${handleText.value}`;
-            window.open(`https://ig.me/m/${INSTAGRAM_USERNAME}?text=${encodeURIComponent(text)}`, '_blank');
-        });
+        // --- TRYB CIEMNY / JASNY ---
+        const themeBtn = $('#themeToggleBtn');
+        const themeIcon = $('#themeIcon');
+        const root = document.documentElement;
+        const body = document.body;
 
-        // KATALOG
-        const grid = document.getElementById('stickerGrid');
-        function renderGrid() {
-            grid.innerHTML = stickers.map(s => `
-                <article class="card" data-id="${s.id}">
-                    <div class="card-img">
-                        <button class="like-btn ${wishlist.includes(s.id) ? 'is-liked' : ''}" data-like="${s.id}"></button>
-                        <img src="${s.images[0]}">
-                    </div>
-                    <div class="card-info"><div class="card-title">${s.title}</div><div class="card-tag">${s.category}</div></div>
-                </article>
-            `).join('');
-            grid.querySelectorAll('.like-btn').forEach(btn => btn.addEventListener('click', e => {
-                e.stopPropagation();
-                const id = Number(btn.dataset.like);
-                const idx = wishlist.indexOf(id);
-                if(idx >= 0) wishlist.splice(idx, 1); else wishlist.push(id);
-                localStorage.setItem('wishlist', JSON.stringify(wishlist));
-                renderGrid();
-            }));
+        if(localStorage.getItem('adhesive_theme') === 'light') {
+            root.classList.remove('dark'); root.classList.add('light'); root.style.colorScheme = 'light';
+            body.classList.remove('bg-mono-950', 'text-mono-100'); body.classList.add('bg-[#f5f5f5]', 'text-[#0a0a0a]');
+            themeIcon.className = 'fa-solid fa-sun text-base text-black';
         }
 
-        renderGrid();
+        themeBtn.addEventListener('click', () => {
+            if (root.classList.contains('dark')) {
+                root.classList.remove('dark'); root.classList.add('light'); root.style.colorScheme = 'light';
+                body.classList.remove('bg-mono-950', 'text-mono-100'); body.classList.add('bg-[#f5f5f5]', 'text-[#0a0a0a]');
+                themeIcon.className = 'fa-solid fa-sun text-base text-black';
+                localStorage.setItem('adhesive_theme', 'light');
+            } else {
+                root.classList.add('dark'); root.classList.remove('light'); root.style.colorScheme = 'dark';
+                body.classList.add('bg-mono-950', 'text-mono-100'); body.classList.remove('bg-[#f5f5f5]', 'text-[#0a0a0a]');
+                themeIcon.className = 'fa-solid fa-moon text-base text-mono-200';
+                localStorage.setItem('adhesive_theme', 'dark');
+            }
+        });
+
+        let toastTimer;
+        function showToast(msg) {
+            $('#toastMsg').textContent = msg;
+            $('#toast').classList.remove('translate-y-24', 'opacity-0');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => $('#toast').classList.add('translate-y-24', 'opacity-0'), 3000);
+        }
+
+        // --- KREATOR ---
+        function calcUnitPrice() { return state.basePrice * state.colorModifier; }
+        function updateConfiguratorUI() {
+            const len = state.text.length;
+            let size = 'text-3xl sm:text-5xl';
+            if (len > 22) size = 'text-2xl sm:text-4xl';
+            if (len > 26) size = 'text-xl sm:text-3xl';
+            
+            $('#previewText').textContent = state.text || '@nick';
+            $('#previewText').className = `${state.fontClass} ${size} foil-${state.color} tracking-normal transition-all whitespace-nowrap max-w-full overflow-hidden text-ellipsis`;
+            
+            if (state.icon === 'none') $('#previewIcon').classList.add('hidden');
+            else {
+                $('#previewIcon').classList.remove('hidden');
+                $('#previewIcon').className = `fa-brands fa-${state.icon} text-4xl sm:text-6xl foil-${state.color} transition-all`;
+            }
+            
+            $('#dynamicPriceDisplay').textContent = fmt(calcUnitPrice() * state.quantity);
+            $('#qtyVal').textContent = state.quantity;
+            $('#specDim').textContent = `${state.sizeCm}.0 x ${(state.sizeCm*0.16).toFixed(1)} cm`;
+            $('#specFoil').textContent = `Oracal ${state.colorName}`;
+            $('#rulerWidthText').textContent = `${state.sizeCm} cm`;
+        }
+
+        $('#stickerTextInput').addEventListener('input', (e) => { state.text = e.target.value; $('#textCharCount').textContent = `${state.text.length}/30`; updateConfiguratorUI(); });
+        
+        // Picker logic (uproszczone)
+        $('#iconPickerGroup').addEventListener('click', e => {
+            const btn = e.target.closest('.icon-btn'); if(!btn) return;
+            $$('.icon-btn').forEach(b => b.className = 'icon-btn border border-mono-800 bg-mono-950 p-3 text-mono-400 rounded-sm flex flex-col items-center justify-center hover:text-white transition');
+            btn.className = 'icon-btn active border-2 border-white bg-mono-800 p-3 text-white rounded-sm flex flex-col items-center justify-center transition';
+            state.icon = btn.dataset.icon; updateConfiguratorUI();
+        });
+        $('#fontPickerGroup').addEventListener('click', e => {
+            const btn = e.target.closest('.font-btn'); if(!btn) return;
+            $$('.font-btn').forEach(b => b.className = 'font-btn border border-mono-800 bg-mono-950 p-2.5 text-left rounded-sm flex items-center justify-between hover:border-mono-600 transition');
+            btn.className = 'font-btn active border-2 border-white bg-mono-800 p-2.5 text-left rounded-sm flex items-center justify-between transition';
+            state.fontClass = btn.dataset.font; state.fontName = btn.dataset.fontName; updateConfiguratorUI();
+        });
+        $('#colorPickerGroup').addEventListener('click', e => {
+            const btn = e.target.closest('.color-btn'); if(!btn) return;
+            $$('.color-btn').forEach(b => b.className = 'color-btn border border-mono-800 bg-mono-950 p-2 rounded-sm flex items-center space-x-2 hover:border-mono-600 transition');
+            btn.className = 'color-btn active border-2 border-white bg-mono-800 p-2 rounded-sm flex items-center space-x-2 transition';
+            state.color = btn.dataset.color; state.colorName = btn.dataset.colorName; state.colorModifier = parseFloat(btn.dataset.priceModifier); updateConfiguratorUI();
+        });
+        $('#sizePickerGroup').addEventListener('click', e => {
+            const btn = e.target.closest('.size-btn'); if(!btn) return;
+            $$('.size-btn').forEach(b => b.className = 'size-btn border border-mono-800 bg-mono-950 py-2 rounded-sm text-xs font-mono font-bold hover:border-mono-600 transition');
+            btn.className = 'size-btn active border-2 border-white bg-mono-800 py-2 rounded-sm text-xs font-mono font-bold text-white transition';
+            state.sizeCm = parseInt(btn.dataset.size); state.basePrice = parseFloat(btn.dataset.basePrice); updateConfiguratorUI();
+        });
+        $('#bgModeSwitcher').addEventListener('click', e => {
+            const btn = e.target.closest('.bg-btn'); if(!btn) return;
+            $$('.bg-btn').forEach(b => b.className = 'bg-btn px-3 py-1.5 text-[11px] font-bold rounded-sm text-mono-400 hover:text-white transition flex items-center space-x-1.5');
+            btn.className = 'bg-btn active px-3 py-1.5 text-[11px] font-bold rounded-sm text-white bg-mono-800 border border-mono-700 flex items-center space-x-1.5';
+            const mockup = $('#mockupCanvasContainer');
+            mockup.className = 'min-h-[360px] sm:min-h-[440px] rounded flex flex-col items-center justify-center p-6 sm:p-12 transition-all relative overflow-hidden border border-mono-800';
+            if(btn.dataset.mode === 'glass') mockup.classList.add('bg-car-glass');
+            else if(btn.dataset.mode === 'carbon') mockup.classList.add('bg-carbon');
+            else mockup.classList.add('bg-cutter-grid');
+        });
+        
+        $('#qtyMinus').addEventListener('click', () => { if(state.quantity>1) {state.quantity--; updateConfiguratorUI();} });
+        $('#qtyPlus').addEventListener('click', () => { state.quantity++; updateConfiguratorUI(); });
+
+        // --- PRZEKIEROWANIE NA IG ---
+        $('#orderViaIgBtn').addEventListener('click', () => {
+            const msg = `Siema! Chcę zamówić naklejkę:\n\n📝 Tekst: ${state.text}\n🔤 Czcionka: ${state.fontName}\n🎨 Kolor: ${state.colorName}\n📏 Rozmiar: ${state.sizeCm} cm\n🔢 Ilość: ${state.quantity} szt.\n💰 Cena: ${$('#dynamicPriceDisplay').textContent}`;
+            const url = `https://ig.me/m/${INSTAGRAM_USERNAME}?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+            showToast("Otwieram Instagrama...");
+        });
+
+        // --- KATALOG (z serduszkami i wyszukiwarką) ---
+        function renderCatalog() {
+            $('#catalogGrid').innerHTML = CATALOG.map(item => {
+                const isFav = localStorage.getItem('fav_'+item.id) === 'true';
+                const def = CATALOG_COLORS[0];
+                return `
+                <div class="catalog-card bg-mono-900 border border-mono-800 rounded p-5 flex flex-col justify-between hover:border-mono-600 transition group relative" id="${item.id}" data-selected-color="${def.name}">
+                    <button class="fav-btn absolute top-3 right-3 text-lg z-10 p-1 ${isFav ? 'text-red-500' : 'text-mono-500 hover:text-white'}" onclick="toggleFav(event, '${item.id}', this)">
+                        <i class="fa-${isFav ? 'solid' : 'regular'} fa-heart"></i>
+                    </button>
+                    <div>
+                        <div class="bg-mono-950 h-36 rounded flex items-center justify-center p-4 mb-4 border border-mono-850 group-hover:bg-mono-900 transition relative overflow-hidden">
+                            <span class="catalog-preview ${item.fontClass} text-xl ${def.foil} tracking-wider text-center transition-all duration-300 truncate max-w-full">${item.title}</span>
+                        </div>
+                        <div class="flex justify-between items-baseline mb-1"><h3 class="font-bold text-white text-sm">${item.title.toUpperCase()}</h3><span class="font-mono text-sm font-bold text-white">${item.price} zł</span></div>
+                        <p class="text-xs text-mono-400 mb-4">Wymiary: ${item.dims}</p>
+                        
+                        <div class="mb-5">
+                            <span class="block text-[10px] font-bold uppercase tracking-wider text-mono-400 mb-2">Kolor folii:</span>
+                            <div class="grid grid-cols-3 gap-1.5">
+                                ${CATALOG_COLORS.map((c,i) => `<button type="button" onclick="changeCatColor(event, this, '${c.foil}', '${c.name}')" class="border ${i===0 ? 'border-white bg-mono-800 text-white' : 'border-mono-800 bg-mono-950 text-mono-400'} py-1.5 px-1 rounded-sm text-[11px] font-semibold flex items-center justify-center space-x-1.5 transition"><span class="w-2.5 h-2.5 rounded-full ${c.dot}"></span><span>${c.name}</span></button>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" onclick="orderCatalogItem('${item.title}', '${item.price}', '${item.size}')" class="w-full bg-mono-800 hover:bg-white hover:text-black text-white text-xs py-3 font-bold uppercase transition border border-mono-700 rounded-sm">Zamów na IG</button>
+                </div>`;
+            }).join('');
+        }
+
+        window.changeCatColor = function(e, btn, foilClass, colorName) {
+            e.preventDefault();
+            const card = btn.closest('.catalog-card');
+            card.dataset.selectedColor = colorName;
+            card.querySelectorAll('button[onclick^="changeCatColor"]').forEach(b => b.className = 'border border-mono-800 bg-mono-950 text-mono-400 py-1.5 px-1 rounded-sm text-[11px] font-semibold flex items-center justify-center space-x-1.5 transition');
+            btn.className = 'border border-white bg-mono-800 text-white py-1.5 px-1 rounded-sm text-[11px] font-semibold flex items-center justify-center space-x-1.5 transition';
+            const prev = card.querySelector('.catalog-preview');
+            prev.className = `catalog-preview ${prev.classList[1]} text-xl ${foilClass} tracking-wider text-center transition-all duration-300 truncate max-w-full`;
+        };
+
+        window.toggleFav = function(e, id, btn) {
+            e.preventDefault();
+            const current = localStorage.getItem('fav_'+id) === 'true';
+            if(current) {
+                localStorage.setItem('fav_'+id, 'false');
+                btn.innerHTML = '<i class="fa-regular fa-heart"></i>';
+                btn.className = 'fav-btn absolute top-3 right-3 text-lg z-10 p-1 text-mono-500 hover:text-white';
+            } else {
+                localStorage.setItem('fav_'+id, 'true');
+                btn.innerHTML = '<i class="fa-solid fa-heart"></i>';
+                btn.className = 'fav-btn absolute top-3 right-3 text-lg z-10 p-1 text-red-500';
+            }
+        };
+
+        window.orderCatalogItem = function(title, price, size) {
+            const msg = `Siema! Chcę zamówić gotowy wzór z katalogu:\n\n🏷️ Wzór: ${title}\n📏 Rozmiar: ${size}\n💰 Cena: ${price} zł`;
+            window.open(`https://ig.me/m/${INSTAGRAM_USERNAME}?text=${encodeURIComponent(msg)}`, '_blank');
+            showToast("Otwieram Instagrama...");
+        };
+
+        // Wyszukiwarka
+        $('#searchCatalog').addEventListener('input', (e) => {
+            const q = e.target.value.toLowerCase();
+            $$('.catalog-card').forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                card.style.display = title.includes(q) ? 'flex' : 'none';
+            });
+        });
+
+        // Start
+        renderCatalog();
+        updateConfiguratorUI();
+        switchView('creator'); // Domyślnie kreator
+    })();
     </script>
 </body>
 </html>
