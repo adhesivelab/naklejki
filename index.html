@@ -29,8 +29,44 @@
         .font-gothic    { font-family:'UnifrakturMaguntia',serif; font-weight:400; font-size:1.15em; }
         .font-jdm       { font-family:'Montserrat',sans-serif; font-weight:900; font-style:italic; letter-spacing:-.02em; transform:skewX(-12deg); text-transform:uppercase; }
 
-        /* Czyste logo */
-        .logo-text { font-family: 'Montserrat', sans-serif; font-weight: 900; letter-spacing: 0.2em; text-transform: lowercase; }
+        /* === PRZYWRÓCONE KRĘCĄCE SIĘ LOGO 3D === */
+        #logoStage {
+            position: relative;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #050505;
+            border-bottom: 1px solid #171717;
+            overflow: hidden;
+            perspective: 800px;
+        }
+        #dvdLogo {
+            display: inline-block;
+            color: #ffffff;
+            text-shadow: 0 0 14px rgba(255,255,255,.3);
+            transform-origin: center center;
+            animation: logoSpin 6s linear infinite;
+            will-change: transform;
+            white-space: nowrap;
+            padding: 0 8px;
+            user-select: none;
+            -webkit-user-select: none;
+            font-family:'UnifrakturMaguntia',serif; 
+            font-size:2.5rem; 
+            letter-spacing:-.02em; 
+            line-height:1;
+        }
+        @keyframes logoSpin {
+            from { transform: rotateY(0deg); }
+            to   { transform: rotateY(360deg); }
+        }
+        #dvdLogo:hover {
+            animation-play-state: paused;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            #dvdLogo { animation: none; }
+        }
 
         .foil-white { color:#fff; text-shadow:0 0 10px rgba(255,255,255,.3); }
         .foil-black { color:#111; text-shadow:0 0 1px #333; filter:drop-shadow(0 0 1px #fff); }
@@ -65,9 +101,9 @@
     <!-- HEADER -->
     <header class="sticky top-0 z-40 bg-mono-950/95 backdrop-blur-md border-b border-mono-800">
         
-        <!-- Logo -->
-        <div class="h-16 sm:h-20 flex items-center justify-center bg-mono-950 border-b border-mono-800">
-            <a href="#" class="logo-text text-white text-lg sm:text-xl">adhesive</a>
+        <!-- Kręcące się logo 3D -->
+        <div id="logoStage">
+            <a id="dvdLogo" href="#" aria-label="ADHESIVE — strona główna">adhesive</a>
         </div>
 
         <div class="relative max-w-7xl mx-auto px-2 sm:px-4 py-2 sm:py-3 flex items-center justify-center">
@@ -249,7 +285,7 @@
     <!-- STOPKA -->
     <footer class="border-t border-mono-800 bg-mono-950 py-6 sm:py-10 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6">
-            <span class="logo-text text-white text-lg">adhesive</span>
+            <span class="font-logo-gothic text-white text-lg">adhesive</span>
             <p class="text-[10px] sm:text-xs text-mono-500 text-center">© 2026 ADHESIVE Decals. Wszystkie prawa zastrzeżone.</p>
             <div class="flex space-x-4 text-mono-400 text-lg">
                 <a href="https://instagram.com/adhesive.lab" target="_blank" rel="noopener" class="hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
