@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADHESIVE LAB // KATALOG NAKLEJEK</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-black: #050505;
+            --card-black: #0d0d0d;
+            --border-dark: #222222;
+            --text-white: #f5f5f5;
+            --text-gray: #777777;
+            --accent-white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-white);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* NAGŁÓWEK I LOGO */
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-img {
+            max-width: 240px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 1.5rem;
+            /* Inwertuje czarne logo na biały kolor pod ciemne tło */
+            filter: invert(1) brightness(1.2); 
+            transition: transform 0.4s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.04);
+        }
+
+        header p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .notice-bar {
+            margin-top: 1.2rem;
+            display: inline-block;
+            border: 1px solid var(--border-dark);
+            padding: 0.5rem 1.2rem;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            color: #aaa;
+            text-transform: uppercase;
+            background: rgba(255, 255, 255, 0.02);
+            text-decoration: none;
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+
+        .notice-bar:hover {
+            border-color: var(--text-white);
+            color: var(--text-white);
+        }
+
+        /* SIATKA NAKLEJEK */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .card {
+            background-color: var(--card-black);
+            border: 1px solid var(--border-dark);
+            overflow: hidden;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            border-color: var(--accent-white);
+            transform: translateY(-4px);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 280px;
+            background: #111111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        .card-img img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-img img {
+            transform: scale(1.06);
+        }
+
+        .card-info {
+            padding: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .card-tag {
+            font-size: 0.7rem;
+            color: var(--text-gray);
+            border: 1px solid var(--border-dark);
+            padding: 0.2rem 0.5rem;
+            text-transform: uppercase;
+        }
+
+        /* MODAL / PODGLĄD */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 1rem;
+        }
+
+        .modal-box {
+            background: var(--bg-black);
+            border: 1px solid var(--border-dark);
+            max-width: 520px;
+            width: 100%;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1.2rem;
+            background: none;
+            border: none;
+            color: var(--text-gray);
+            font-size: 1.8rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            color: var(--text-white);
+        }
+
+        .modal-img-wrap {
+            width: 100%;
+            height: 260px;
+            background: #111;
+            border: 1px solid var(--border-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+        }
+
+        .modal-img-wrap img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .modal-h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-desc {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .specs {
+            border-top: 1px solid var(--border-dark);
+            border-bottom: 1px solid var(--border-dark);
+            padding: 1rem 0;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .specs span {
+            color: var(--text-gray);
+        }
+
+        .specs strong {
+            color: var(--text-white);
+            display: block;
+            margin-top: 0.2rem;
+        }
+
+        .actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-black {
+            flex: 1;
+            background: var(--text-white);
+            color: var(--bg-black);
+            border: none;
+            padding: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .btn-black:hover {
+            background: #ccc;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-white);
+            border: 1px solid var(--border-dark);
+            padding: 0.85rem 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: border-color 0.2s ease;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-white);
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-top: 1px solid var(--border-dark);
+            padding-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <!-- Tutaj ładuje się plik logo.png wrzucony do GitHub -->
+            <img src="logo.png" alt="ADHESIVE LAB LOGO" class="logo-img">
+            <p>ARCHIWUM // KATALOG NAKLEJEK</p>
+            <a href="https://instagram.com/adhesive.lab" target="_blank" class="notice-bar">ZAMÓWIENIA TYLKO W WIADOMOŚCI PRIV (DM) NA INSTAGRAMIE @ADHESIVE.LAB</a>
+        </header>
+
+        <div class="grid" id="stickerGrid"></div>
+    </div>
+
+    <!-- Okno podglądu -->
+    <div class="modal" id="stickerModal">
+        <div class="modal-box">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <div class="modal-img-wrap">
+                <img id="modalImg" src="" alt="Naklejka">
+            </div>
+            <h2 class="modal-h2" id="modalTitle">NAZWA NAKLEJKI</h2>
+            <p class="modal-desc" id="modalDesc">Opis projektu naklejki.</p>
+            
+            <div class="specs">
+                <div>
+                    <span>WYKOŃCZENIE</span>
+                    <strong id="modalFinish">HOLOGRAFICZNE / WYCIĘTE PO OBRYSIE</strong>
+                </div>
+                <div>
+                    <span>ROZMIAR</span>
+                    <strong id="modalSize">8 X 8 CM</strong>
+                </div>
+            </div>
+
+            <div class="actions">
+                <a id="modalDmBtn" href="https://instagram.com/adhesive.lab" target="_blank" class="btn-black">ZAMÓW NA INSTA DM</a>
+                <button class="btn-outline" onclick="copyQuery()">SKOPIUJ WZÓR</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ADHESIVE LAB. WSZYSTKIE PRAWA ZASTRZEŻONE.</p>
+    </footer>
+
+    <script>
+        const INSTAGRAM_USERNAME = "adhesive.lab";
+
+        const stickers = [
+            {
+                id: 1,
+                title: "ADHESIVE TRIBAL SKULL",
+                category: "HOLO WYCIĘCIE",
+                finish: "Holograficzne / Wodoodporne",
+                size: "8 x 8 CM",
+                desc: "Gotycki motyw czaszki z ostrymi krawędziami. Mieniące się refleksy holograficzne pod kątem światła.",
+                img: "https://picsum.photos/id/1062/400/400"
+            },
+            {
+                id: 2,
+                title: "CHROME STARBURST",
+                category: "MATOWY CHROM",
+                finish: "Matowy Winyl Premium",
+                size: "10 x 5 CM",
+                desc: "Stylówka Y2K z chromowanym wykończeniem i głębokim matowym czarnym tłem.",
+                img: "https://picsum.photos/id/1069/400/400"
+            },
+            {
+                id: 3,
+                title: "DARK MATTER LOGO",
+                category: "BŁYSZCZĄCY WINYL",
+                finish: "Błysk UV / Odporna na deszcz",
+                size: "7 x 7 CM",
+                desc: "Klasyczne logo z odporną warstwą ochronną UV. Wycięte idealnie po obrysie.",
+                img: "https://picsum.photos/id/1025/400/400"
+            }
+        ];
+
+        const grid = document.getElementById('stickerGrid');
+        const modal = document.getElementById('stickerModal');
+        let currentSticker = null;
+
+        function render() {
+            grid.innerHTML = stickers.map(s => `
+                <div class="card" onclick="openModal(${s.id})">
+                    <div class="card-img">
+                        <img src="${s.img}" alt="${s.title}">
+                    </div>
+                    <div class="card-info">
+                        <div class="card-title">${s.title}</div>
+                        <div class="card-tag">${s.category}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openModal(id) {
+            currentSticker = stickers.find(s => s.id === id);
+            document.getElementById('modalImg').src = currentSticker.img;
+            document.getElementById('modalTitle').innerText = currentSticker.title;
+            document.getElementById('modalDesc').innerText = currentSticker.desc;
+            document.getElementById('modalFinish').innerText = currentSticker.finish;
+            document.getElementById('modalSize').innerText = currentSticker.size;
+            
+            const msg = encodeURIComponent(`Siema! Chcę zapytać / zamówić naklejkę: ${currentSticker.title} (${currentSticker.size})`);
+            document.getElementById('modalDmBtn').href = `https://ig.me/m/${INSTAGRAM_USERNAME}?text=${msg}`;
+
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        function copyQuery() {
+            const text = `Siema! Zamawiam naklejkę: ${currentSticker.title} (${currentSticker.size})`;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Skopiowano! Wklej wiadomość na DM do @adhesive.lab');
+            });
+        }
+
+        window.onclick = function(e) {
+            if (e.target == modal) closeModal();
+        }
+
+        render();
+    </script>
+</body>
+</html>
