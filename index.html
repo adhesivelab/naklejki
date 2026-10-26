@@ -3,21 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADHESIVE LAB // KATALOG NAKLEJEK</title>
+    <title>ADHESIVE LAB // KATALOG I KREATOR</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
 
-    <meta name="description" content="Archiwum naklejek ADHESIVE LAB. Holograficzne, matowe i chromowane wycięcia. Zamówienia przez Instagram DM.">
-    <meta property="og:title" content="ADHESIVE LAB // KATALOG NAKLEJEK">
-    <meta property="og:description" content="Archiwum naklejek ADHESIVE LAB. Zamówienia przez Instagram DM.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="logo.png">
-    <meta name="twitter:card" content="summary_large_image">
-
+    <meta name="description" content="Katalog naklejek i kreator własnych naklejek ADHESIVE LAB.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&display=swap" rel="stylesheet">
 
     <style>
         :root { --bg-black: #050505; --card-black: #0d0d0d; --border-dark: #222222; --text-white: #f5f5f5; --text-gray: #777777; --accent-white: #ffffff; --accent-new: #4ade80; --accent-like: #ff4d6d; }
@@ -33,7 +27,7 @@
         .mini-header a { font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-white); border: 1px solid var(--border-dark); padding: 0.4rem 0.8rem; text-decoration: none; transition: border-color 0.2s ease; }
         .mini-header a:hover { border-color: var(--accent-white); }
 
-        header { text-align: center; margin-bottom: 3rem; display: flex; flex-direction: column; align-items: center; }
+        header { text-align: center; margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center; }
         .logo-img { max-width: 380px; width: 100%; height: auto; margin-bottom: 1.5rem; filter: invert(1) brightness(1.2); transform-style: preserve-3d; animation: spinLogo 12s linear infinite; transition: filter 0.3s ease; will-change: transform; }
         @keyframes spinLogo { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
         .logo-img:hover { animation-play-state: paused; }
@@ -44,32 +38,41 @@
         .counter { margin-top: 1rem; font-size: 0.7rem; letter-spacing: 2px; color: #555; }
         .counter span { color: var(--text-white); font-weight: 700; }
 
-        .search-bar { max-width: 400px; margin: 0 auto 1.5rem; }
-        .search-bar input { width: 100%; background: var(--card-black); border: 1px solid var(--border-dark); color: var(--text-white); padding: 0.7rem 1rem; font-family: inherit; font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase; outline: none; transition: border-color 0.2s ease, background 0.3s ease; }
-        .search-bar input:focus { border-color: var(--accent-white); }
-        .search-bar input::placeholder { color: var(--text-gray); }
+        /* NAWIGACJA KAFELKOWA */
+        .nav-tabs { display: flex; gap: 1rem; margin: 2rem auto 4rem; max-width: 800px; flex-wrap: wrap; justify-content: center; }
+        .nav-tab { flex: 1; min-width: 200px; padding: 1.5rem; background: var(--card-black); border: 1px solid var(--border-dark); color: var(--text-white); text-align: center; font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; border-radius: 4px; }
+        .nav-tab:hover { border-color: var(--text-gray); transform: translateY(-2px); }
+        .nav-tab.active { background: var(--text-white); color: var(--bg-black); border-color: var(--text-white); }
         
+        .app-section { display: none; animation: fadeIn 0.4s ease forwards; }
+        .app-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* KATALOG */
+        .search-bar { max-width: 400px; margin: 0 auto 1.5rem; }
+        .search-bar input { width: 100%; background: var(--card-black); border: 1px solid var(--border-dark); color: var(--text-white); padding: 0.7rem 1rem; font-family: inherit; font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase; outline: none; transition: border-color 0.2s ease; border-radius: 4px; }
+        .search-bar input:focus { border-color: var(--accent-white); }
         .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; justify-content: center; }
-        .chip { background: transparent; border: 1px solid var(--border-dark); color: var(--text-gray); padding: 0.4rem 0.9rem; font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease; font-family: inherit; display: inline-flex; align-items: center; gap: 0.35rem; }
+        .chip { background: transparent; border: 1px solid var(--border-dark); color: var(--text-gray); padding: 0.4rem 0.9rem; font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease; font-family: inherit; display: inline-flex; align-items: center; gap: 0.35rem; border-radius: 4px; }
         .chip:hover { color: var(--text-white); border-color: #444; }
         .chip.is-active { background: var(--text-white); color: var(--bg-black); border-color: var(--text-white); font-weight: 700; }
         .chip.chip-like.is-active { background: var(--accent-like); border-color: var(--accent-like); color: #fff; }
         .sort-bar { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 2.5rem; font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-gray); }
-        .sort-bar select { background: var(--card-black); border: 1px solid var(--border-dark); color: var(--text-white); padding: 0.4rem 0.8rem; font-family: inherit; font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; }
+        .sort-bar select { background: var(--card-black); border: 1px solid var(--border-dark); color: var(--text-white); padding: 0.4rem 0.8rem; font-family: inherit; font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; border-radius: 4px; }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 5rem; }
         .empty { grid-column: 1 / -1; text-align: center; color: var(--text-gray); font-size: 0.8rem; letter-spacing: 2px; padding: 3rem 0; }
-        .card { background-color: var(--card-black); border: 1px solid var(--border-dark); overflow: hidden; transition: border-color 0.3s ease, transform 0.3s ease, background-color 0.3s ease; cursor: pointer; position: relative; opacity: 0; transform: translateY(12px); animation: cardIn 0.5s ease forwards; animation-delay: calc(var(--i, 0) * 40ms); }
+        .card { background-color: var(--card-black); border: 1px solid var(--border-dark); overflow: hidden; transition: border-color 0.3s ease, transform 0.3s ease; cursor: pointer; position: relative; opacity: 0; transform: translateY(12px); animation: cardIn 0.5s ease forwards; animation-delay: calc(var(--i, 0) * 40ms); border-radius: 4px; }
         @keyframes cardIn { to { opacity: 1; transform: translateY(0); } }
         .card:hover { border-color: var(--accent-white); transform: translateY(-4px); }
-        .card-img { width: 100%; height: 280px; background: #111; display: flex; align-items: center; justify-content: center; padding: 1.5rem; border-bottom: 1px solid var(--border-dark); transition: background-color 0.3s ease; position: relative; overflow: hidden; }
+        .card-img { width: 100%; height: 280px; background: #111; display: flex; align-items: center; justify-content: center; padding: 1.5rem; border-bottom: 1px solid var(--border-dark); position: relative; overflow: hidden; }
         body.light .card-img { background: #f0f0f0; }
         .card-img img { max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.3s ease, opacity 0.4s ease; position: absolute; }
         .card-img img.secondary { opacity: 0; }
         .card:hover .card-img img.primary { opacity: 0; }
         .card:hover .card-img img.secondary { opacity: 1; transform: scale(1.06); }
         .card:hover .card-img img.primary:only-child { opacity: 1; transform: scale(1.06); }
-        .badge-new { position: absolute; top: 0.5rem; left: 0.5rem; background: var(--accent-new); color: #050505; font-size: 0.6rem; font-weight: 700; letter-spacing: 1.5px; padding: 0.25rem 0.5rem; z-index: 3; text-transform: uppercase; }
+        .badge-new { position: absolute; top: 0.5rem; left: 0.5rem; background: var(--accent-new); color: #050505; font-size: 0.6rem; font-weight: 700; letter-spacing: 1.5px; padding: 0.25rem 0.5rem; z-index: 3; text-transform: uppercase; border-radius: 2px; }
         .like-btn { position: absolute; top: 0.5rem; right: 0.5rem; width: 34px; height: 34px; border-radius: 50%; background: rgba(0,0,0,0.6); border: 1px solid var(--border-dark); color: #fff; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; z-index: 3; transition: background 0.2s ease, transform 0.2s ease; }
         body.light .like-btn { background: rgba(255,255,255,0.8); color: #000; }
         .like-btn:hover { transform: scale(1.1); }
@@ -78,99 +81,112 @@
         .like-btn::before { content: '♡'; }
         .card-info { padding: 1.2rem; display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; }
         .card-title { font-weight: 700; font-size: 0.95rem; letter-spacing: 0.5px; text-transform: uppercase; }
-        .card-tag { font-size: 0.7rem; color: var(--text-gray); border: 1px solid var(--border-dark); padding: 0.2rem 0.5rem; text-transform: uppercase; white-space: nowrap; }
+        .card-tag { font-size: 0.7rem; color: var(--text-gray); border: 1px solid var(--border-dark); padding: 0.2rem 0.5rem; text-transform: uppercase; white-space: nowrap; border-radius: 2px; }
 
-        .modal { display: flex; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.92); backdrop-filter: blur(8px); justify-content: center; align-items: center; z-index: 1000; padding: 1rem; opacity: 0; pointer-events: none; transition: opacity 0.25s ease, background 0.3s ease; }
+        /* KREATOR */
+        .creator-section { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .creator-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        @media (max-width: 900px) { .creator-layout { grid-template-columns: 1fr; } }
+        .creator-panel { background: var(--card-black); border: 1px solid var(--border-dark); padding: 2rem; border-radius: 4px; }
+        .creator-panel h4 { font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-gray); margin-bottom: 1rem; margin-top: 1.5rem; }
+        .creator-panel h4:first-child { margin-top: 0; }
+        .creator-input { width: 100%; background: var(--bg-black); border: 1px solid var(--border-dark); color: var(--text-white); padding: 1rem; font-family: inherit; font-size: 1rem; outline: none; transition: border 0.2s; border-radius: 4px; }
+        .creator-input:focus { border-color: var(--accent-white); }
+        .options-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .opt-btn { background: transparent; border: 1px solid var(--border-dark); color: var(--text-white); padding: 0.6rem 1rem; font-family: inherit; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; border-radius: 4px; display: flex; align-items: center; gap: 0.5rem; }
+        .opt-btn:hover { border-color: var(--text-gray); }
+        .opt-btn.active { border-color: var(--text-white); background: rgba(255,255,255,0.1); }
+        .creator-preview { background: #0a0a0a; border: 1px solid var(--border-dark); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px; position: relative; overflow: hidden; border-radius: 4px; }
+        body.light .creator-preview { background: #e0e0e0; }
+        .preview-sticker { display: flex; align-items: center; gap: 1rem; transform: scale(1); transition: transform 0.3s; padding: 2rem; }
+        .preview-sticker svg { width: 48px; height: 48px; fill: currentColor; }
+        .preview-text { font-size: 2.5rem; font-weight: 700; white-space: nowrap; }
+        .font-street { font-family: 'Space Grotesk', sans-serif; letter-spacing: 2px; text-transform: uppercase; }
+        .font-jdm { font-family: monospace; font-style: italic; letter-spacing: 1px; }
+        .font-racing { font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; font-weight: 900; letter-spacing: 4px; }
+        .font-gothic { font-family: serif; font-weight: bold; text-transform: uppercase; }
+        .opt-size { padding: 0.8rem 1rem; font-size: 0.9rem; font-weight: 700; }
+        .opt-size.active { background: var(--text-white); color: var(--bg-black); border-color: var(--text-white); }
+        .creator-summary { display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-dark); }
+        .price-tag { font-size: 1.8rem; font-weight: 700; }
+        .qty-control { display: flex; align-items: center; border: 1px solid var(--border-dark); border-radius: 4px; }
+        .qty-control button { background: transparent; border: none; color: var(--text-white); padding: 0.5rem 1rem; cursor: pointer; font-size: 1.2rem; }
+        .qty-control span { padding: 0 1rem; font-weight: 700; }
+
+        /* INSTRUKCJA */
+        .guide-section { max-width: 1200px; margin: 0 auto; padding: 0 1rem; text-align: center; }
+        .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; text-align: left; margin-top: 3rem; }
+        .guide-card { background: var(--card-black); border: 1px solid var(--border-dark); padding: 2rem; border-radius: 4px; }
+        .guide-num { font-size: 2rem; font-weight: 700; color: #333; margin-bottom: 0.5rem; }
+        body.light .guide-num { color: #ccc; }
+        .guide-card h5 { font-size: 0.9rem; margin-bottom: 1rem; color: var(--text-white); }
+        .guide-card p { font-size: 0.85rem; color: var(--text-gray); line-height: 1.5; }
+
+        /* MODAL I PRZYCISKI */
+        .modal { display: flex; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.92); backdrop-filter: blur(8px); justify-content: center; align-items: center; z-index: 1000; padding: 1rem; opacity: 0; pointer-events: none; transition: opacity 0.25s ease; }
         .modal.is-open { opacity: 1; pointer-events: auto; }
-        .modal-box { background: var(--bg-black); border: 1px solid var(--border-dark); max-width: 520px; width: 100%; padding: 2rem; position: relative; transform: scale(0.96); transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2), background 0.3s ease; max-height: 92vh; overflow-y: auto; }
+        .modal-box { background: var(--bg-black); border: 1px solid var(--border-dark); max-width: 520px; width: 100%; padding: 2rem; position: relative; transform: scale(0.96); transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2); max-height: 92vh; overflow-y: auto; border-radius: 4px; }
         .modal.is-open .modal-box { transform: scale(1); }
         .close-btn { position: absolute; top: 1rem; right: 1.2rem; background: none; border: none; color: var(--text-gray); font-size: 1.8rem; cursor: pointer; line-height: 1; z-index: 2; }
-        .close-btn:hover { color: var(--text-white); }
         .gallery-main { position: relative; }
-        .modal-img-wrap { width: 100%; height: 260px; background: #111; border: 1px solid var(--border-dark); display: flex; align-items: center; justify-content: center; padding: 1rem; transition: background-color 0.3s ease; cursor: zoom-in; }
+        .modal-img-wrap { width: 100%; height: 260px; background: #111; border: 1px solid var(--border-dark); display: flex; align-items: center; justify-content: center; padding: 1rem; cursor: zoom-in; border-radius: 4px; }
         body.light .modal-img-wrap { background: #f0f0f0; }
         .modal-img-wrap img { max-height: 100%; max-width: 100%; object-fit: contain; }
-        .gallery-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 50%; background: rgba(0, 0, 0, 0.6); border: 1px solid var(--border-dark); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: background 0.2s ease, opacity 0.2s ease; z-index: 2; }
-        body.light .gallery-arrow { background: rgba(255,255,255,0.8); color: #000; }
-        .gallery-arrow:hover { background: rgba(0,0,0,0.9); }
-        .gallery-arrow.prev { left: 0.5rem; }
-        .gallery-arrow.next { right: 0.5rem; }
+        .gallery-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 50%; background: rgba(0, 0, 0, 0.6); border: 1px solid var(--border-dark); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+        .gallery-arrow.prev { left: 0.5rem; } .gallery-arrow.next { right: 0.5rem; }
         .gallery-arrow:disabled { opacity: 0.25; cursor: not-allowed; }
         .gallery-thumbs { display: flex; gap: 0.5rem; margin-top: 0.75rem; overflow-x: auto; padding-bottom: 0.25rem; }
-        .gallery-thumbs:empty { display: none; }
-        .gallery-thumb { flex: 0 0 60px; width: 60px; height: 60px; background: #111; border: 2px solid transparent; cursor: pointer; padding: 0.25rem; transition: border-color 0.2s ease, background-color 0.3s ease; }
+        .gallery-thumb { flex: 0 0 60px; width: 60px; height: 60px; background: #111; border: 2px solid transparent; cursor: pointer; padding: 0.25rem; border-radius: 4px; }
         body.light .gallery-thumb { background: #f0f0f0; }
         .gallery-thumb.is-active { border-color: var(--accent-white); }
         .gallery-thumb img { width: 100%; height: 100%; object-fit: contain; }
-        .gallery-counter { text-align: center; font-size: 0.7rem; color: var(--text-gray); letter-spacing: 1.5px; margin-top: 0.5rem; min-height: 1em; }
-        .modal-h2 { font-size: 1.3rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin: 1rem 0 0.5rem; }
+        .modal-h2 { font-size: 1.3rem; font-weight: 700; text-transform: uppercase; margin: 1rem 0 0.5rem; }
         .modal-desc { color: var(--text-gray); font-size: 0.85rem; line-height: 1.5; margin-bottom: 1.5rem; }
-        .specs { border-top: 1px solid var(--border-dark); border-bottom: 1px solid var(--border-dark); padding: 1rem 0; margin-bottom: 1.5rem; display: flex; justify-content: space-between; gap: 1rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
-        .specs span { color: var(--text-gray); }
-        .specs strong { color: var(--text-white); display: block; margin-top: 0.2rem; }
+        .specs { border-top: 1px solid var(--border-dark); border-bottom: 1px solid var(--border-dark); padding: 1rem 0; margin-bottom: 1.5rem; display: flex; justify-content: space-between; gap: 1rem; font-size: 0.75rem; text-transform: uppercase; }
+        .specs span { color: var(--text-gray); } .specs strong { color: var(--text-white); display: block; margin-top: 0.2rem; }
         .actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
         .actions .btn-black { flex: 2; min-width: 140px; }
-        .btn-black { background: var(--text-white); color: var(--bg-black); border: none; padding: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; text-decoration: none; text-align: center; cursor: pointer; transition: background 0.2s ease, color 0.2s ease; }
+        .btn-black { background: var(--text-white); color: var(--bg-black); border: none; padding: 0.85rem; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; text-decoration: none; text-align: center; cursor: pointer; border-radius: 4px; }
         .btn-black:hover { background: #ccc; }
-        .btn-outline { background: transparent; color: var(--text-white); border: 1px solid var(--border-dark); padding: 0.85rem 1rem; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; cursor: pointer; transition: border-color 0.2s ease, color 0.2s ease; font-family: inherit; flex: 1; min-width: 120px; }
+        .btn-outline { background: transparent; color: var(--text-white); border: 1px solid var(--border-dark); padding: 0.85rem 1rem; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; cursor: pointer; border-radius: 4px; flex: 1; min-width: 120px; }
         .btn-outline:hover { border-color: var(--text-white); }
-        .btn-outline:disabled { opacity: 0.85; cursor: default; border-color: var(--accent-new); color: var(--accent-new); }
+        .btn-outline:disabled { opacity: 0.85; color: var(--accent-new); border-color: var(--accent-new); }
         .btn-outline.is-liked { color: var(--accent-like); border-color: var(--accent-like); }
 
-        .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.97); z-index: 1100; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.25s ease; padding: 1rem; }
+        .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.97); z-index: 1100; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; padding: 1rem; }
         .lightbox.is-open { opacity: 1; pointer-events: auto; }
-        .lightbox img { max-width: 95vw; max-height: 92vh; object-fit: contain; transform: scale(0.95); transition: transform 0.3s ease; }
-        .lightbox.is-open img { transform: scale(1); }
-        .lightbox-close { position: absolute; top: 1.5rem; right: 1.5rem; width: 44px; height: 44px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 1.5rem; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-        .lightbox-close:hover { background: rgba(255,255,255,0.2); }
+        .lightbox img { max-width: 95vw; max-height: 92vh; object-fit: contain; }
+        .lightbox-close { position: absolute; top: 1.5rem; right: 1.5rem; width: 44px; height: 44px; background: rgba(255,255,255,0.1); color: #fff; font-size: 1.5rem; border-radius: 50%; cursor: pointer; border: none; }
         
-        .theme-toggle { position: fixed; top: 1rem; right: 1rem; width: 44px; height: 44px; border-radius: 50%; background: var(--card-black); border: 1px solid var(--border-dark); color: var(--text-white); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; z-index: 1001; transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.3s ease; }
-        .theme-toggle:hover { transform: scale(1.1); border-color: var(--accent-white); }
+        .theme-toggle { position: fixed; top: 1rem; right: 1rem; width: 44px; height: 44px; border-radius: 50%; background: var(--card-black); border: 1px solid var(--border-dark); color: var(--text-white); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; z-index: 1001; }
         
-        .how-to { max-width: 900px; margin: 0 auto 5rem; padding: 2.5rem 1.5rem; border: 1px solid var(--border-dark); text-align: center; background: rgba(255,255,255,0.01); }
-        .how-to h3 { font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 2rem; color: var(--text-gray); }
-        .how-to-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
-        .step { text-align: center; }
-        .step-num { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid var(--border-dark); border-radius: 50%; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.75rem; }
-        .step p { font-size: 0.8rem; color: var(--text-gray); line-height: 1.5; letter-spacing: 0.5px; }
-        .step p strong { color: var(--text-white); display: block; margin-bottom: 0.25rem; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; }
-
-        .fly-sticker { position: fixed; width: 60px; height: 60px; object-fit: contain; pointer-events: none; z-index: 2000; border-radius: 8px; background: rgba(255,255,255,0.05); padding: 4px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); will-change: transform, opacity; }
+        .fly-sticker { position: fixed; width: 60px; height: 60px; object-fit: contain; pointer-events: none; z-index: 2000; border-radius: 8px; background: rgba(255,255,255,0.05); padding: 4px; will-change: transform, opacity; }
         .like-burst { position: fixed; width: 20px; height: 20px; border-radius: 50%; background: var(--accent-like); pointer-events: none; z-index: 1999; animation: likeBurst 0.5s ease-out forwards; }
         @keyframes likeBurst { 0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; } 100% { transform: translate(-50%, -50%) scale(3); opacity: 0; } }
         .chip-like.pulse { animation: chipPulse 0.6s ease; }
         @keyframes chipPulse { 0% { transform: scale(1); } 30% { transform: scale(1.18); box-shadow: 0 0 20px var(--accent-like); } 60% { transform: scale(1.05); } 100% { transform: scale(1); } }
         .like-btn.burst::before { animation: heartBurst 0.4s ease; }
         @keyframes heartBurst { 0% { transform: scale(1); } 40% { transform: scale(1.5); } 100% { transform: scale(1); } }
-        .like-btn.unburst::before { animation: heartShrink 0.3s ease; }
-        @keyframes heartShrink { 0% { transform: scale(1); } 50% { transform: scale(0.6); } 100% { transform: scale(1); } }
-        @media (prefers-reduced-motion: reduce) { .fly-sticker, .like-burst, .chip-like.pulse, .like-btn.burst::before, .like-btn.unburst::before { animation: none !important; transition: none !important; } }
-        
-        :focus-visible { outline: 2px solid var(--text-white); outline-offset: 3px; }
-        footer { text-align: center; color: var(--text-gray); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; border-top: 1px solid var(--border-dark); padding-top: 2rem; }
+
+        footer { text-align: center; color: var(--text-gray); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; border-top: 1px solid var(--border-dark); padding-top: 2rem; margin-top: 5rem; }
         
         body.light { --bg-black: #f5f5f5; --card-black: #ffffff; --border-dark: #e0e0e0; --text-white: #0a0a0a; --text-gray: #666666; --accent-white: #000000; }
         body.light .logo-img { filter: none; }
         body.light .notice-bar { background: rgba(0,0,0,0.03); color: #444; }
         body.light .card-img, body.light .modal-img-wrap { background: #f0f0f0; }
-        body.light .modal { background: rgba(255,255,255,0.92); }
         body.light .btn-black { background: #000; color: #fff; }
-        body.light .btn-black:hover { background: #222; }
-        
+
         @media (max-width: 480px) {
-            body { padding: 1.5rem 0.75rem; }
-            header { margin-bottom: 2rem; }
+            body { padding: 1.5rem 0.5rem; }
             .logo-img { max-width: 260px; }
             .card-img { height: 220px; }
-            .modal-box { padding: 1.5rem; }
-            .specs { flex-direction: column; gap: 0.75rem; }
             .actions { flex-direction: column; }
             .actions .btn-black, .btn-outline { width: 100%; }
-            .fly-sticker { width: 40px; height: 40px; }
         }
     </style>
 </head>
 <body>
+
     <div class="mini-header" id="miniHeader">
         <img src="logo.png" alt="ADHESIVE LAB">
         <a href="https://instagram.com/adhesive.lab" target="_blank" rel="noopener">DM → ZAMÓW</a>
@@ -184,611 +200,322 @@
         <header>
             <img src="logo.png" alt="ADHESIVE LAB LOGO" class="logo-img">
             <p>ARCHIWUM // KATALOG NAKLEJEK</p>
-            <a href="https://instagram.com/adhesive.lab" target="_blank" rel="noopener" class="notice-bar">
-                ZAMÓWIENIA TYLKO W WIADOMOŚCI PRIV (DM) NA INSTAGRAMIE @ADHESIVE.LAB
-            </a>
-            <p class="counter"><span id="stickerCount">0</span> WZORÓW W ARCHIWUM</p>
+            <a href="https://instagram.com/adhesive.lab" target="_blank" rel="noopener" class="notice-bar">ZAMÓWIENIA PRIV (DM) NA INSTAGRAMIE @ADHESIVE.LAB</a>
         </header>
 
-        <div class="search-bar">
-            <input type="search" id="searchInput" placeholder="SZUKAJ NAKLEJKI..." aria-label="Szukaj naklejki">
+        <!-- KAFELKI NAWIGACYJNE -->
+        <div class="nav-tabs">
+            <button class="nav-tab" data-target="section-creator">KREATOR</button>
+            <button class="nav-tab active" data-target="section-catalog">GOTOWE WZORY</button>
+            <button class="nav-tab" data-target="section-guide">INSTRUKCJA</button>
         </div>
 
-        <nav class="filters" id="filters" aria-label="Filtruj naklejki"></nav>
-
-        <div class="sort-bar">
-            <label for="sortSelect">SORTUJ:</label>
-            <select id="sortSelect" aria-label="Sortowanie">
-                <option value="default">DOMYŚLNIE</option>
-                <option value="name-asc">NAZWA A → Z</option>
-                <option value="name-desc">NAZWA Z → A</option>
-                <option value="newest">NAJNOWSZE</option>
-            </select>
-        </div>
-
-        <div class="grid" id="stickerGrid" aria-live="polite"></div>
-
-        <section class="how-to">
-            <h3>JAK ZAMÓWIĆ</h3>
-            <div class="how-to-steps">
-                <div class="step">
-                    <div class="step-num">1</div>
-                    <p><strong>WYBIERZ</strong>Kliknij naklejkę, która Ci się podoba.</p>
-                </div>
-                <div class="step">
-                    <div class="step-num">2</div>
-                    <p><strong>NAPISZ DM</strong>Kliknij „ZAMÓW NA INSTA DM" w podglądzie.</p>
-                </div>
-                <div class="step">
-                    <div class="step-num">3</div>
-                    <p><strong>DOGADAMY</strong>Ustalamy ilość, wysyłkę i płatność.</p>
+        <!-- SEKCJA 1: KREATOR -->
+        <div id="section-creator" class="app-section">
+            <div class="creator-section">
+                <div class="creator-layout">
+                    <div class="creator-panel">
+                        <h4>1. TREŚĆ NAKLEJKI</h4>
+                        <input type="text" id="handleText" class="creator-input" placeholder="@twoj_nick" maxlength="20" value="@twoj_nick">
+                        <h4>2. WYBIERZ IKONĘ</h4>
+                        <div class="options-grid" id="iconOptions">
+                            <button class="opt-btn active" data-icon="instagram">📷 Instagram</button>
+                            <button class="opt-btn" data-icon="tiktok">🎵 TikTok</button>
+                            <button class="opt-btn" data-icon="youtube">▶️ YouTube</button>
+                            <button class="opt-btn" data-icon="none">🚫 Brak</button>
+                        </div>
+                        <h4>3. STYL CZCIONKI</h4>
+                        <div class="options-grid" id="fontOptions">
+                            <button class="opt-btn active" data-font="font-street">Streetwear</button>
+                            <button class="opt-btn" data-font="font-jdm">JDM</button>
+                            <button class="opt-btn" data-font="font-racing">Racing</button>
+                            <button class="opt-btn" data-font="font-gothic">Gothic</button>
+                        </div>
+                        <h4>4. KOLOR FOLII</h4>
+                        <div class="options-grid" id="colorOptions">
+                            <button class="opt-btn active" data-color="#ffffff">Biały</button>
+                            <button class="opt-btn" data-color="#000000">Czarny</button>
+                            <button class="opt-btn" data-color="silver">Srebrny</button>
+                            <button class="opt-btn" data-color="gold">Złoty</button>
+                            <button class="opt-btn" data-color="#ff0000">Czerwony</button>
+                            <button class="opt-btn" data-color="holo">Holo</button>
+                        </div>
+                        <h4>5. ROZMIAR</h4>
+                        <div class="options-grid" id="sizeOptions">
+                            <button class="opt-btn opt-size" data-size="15" data-price="19">15 cm</button>
+                            <button class="opt-btn opt-size active" data-size="20" data-price="24">20 cm</button>
+                            <button class="opt-btn opt-size" data-size="25" data-price="29">25 cm</button>
+                            <button class="opt-btn opt-size" data-size="30" data-price="34">30 cm</button>
+                            <button class="opt-btn opt-size" data-size="40" data-price="44">40 cm</button>
+                            <button class="opt-btn opt-size" data-size="50" data-price="54">50 cm</button>
+                        </div>
+                        <div class="creator-summary">
+                            <div>
+                                <span style="font-size: 0.7rem; color: var(--text-gray); text-transform: uppercase;">Cena:</span>
+                                <div class="price-tag" id="finalPrice">24,00 zł</div>
+                            </div>
+                            <div class="qty-control">
+                                <button id="qtyMinus">-</button>
+                                <span id="qtyDisplay">1</span>
+                                <button id="qtyPlus">+</button>
+                            </div>
+                        </div>
+                        <button class="btn-black" style="width: 100%; margin-top: 1.5rem; padding: 1rem;" id="addToCartBtn">ZAMÓW PRZEZ DM</button>
+                    </div>
+                    <div class="creator-preview">
+                        <div class="preview-sticker" id="stickerPreview">
+                            <svg id="previewIcon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                            <span class="preview-text font-street" id="previewText" style="color: #ffffff;">@TWOJ_NICK</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-    </div>
-    <div class="modal" id="stickerModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <div class="modal-box" role="document">
-            <button class="close-btn" id="closeBtn" aria-label="Zamknij podgląd">&times;</button>
-            <div class="gallery-main">
-                <div class="modal-img-wrap" id="modalImgWrap" title="Kliknij, aby powiększyć">
-                    <img id="modalImg" src="" alt="">
+        </div>
+
+        <!-- SEKCJA 2: KATALOG -->
+        <div id="section-catalog" class="app-section active">
+            <div class="search-bar">
+                <input type="search" id="searchInput" placeholder="SZUKAJ NAKLEJKI...">
+            </div>
+            <nav class="filters" id="filters"></nav>
+            <div class="sort-bar">
+                <label for="sortSelect">SORTUJ:</label>
+                <select id="sortSelect">
+                    <option value="default">DOMYŚLNIE</option>
+                    <option value="name-asc">NAZWA A → Z</option>
+                    <option value="name-desc">NAZWA Z → A</option>
+                    <option value="newest">NAJNOWSZE</option>
+                </select>
+            </div>
+            <div class="grid" id="stickerGrid"></div>
+        </div>
+
+        <!-- SEKCJA 3: INSTRUKCJA -->
+        <div id="section-guide" class="app-section">
+            <div class="guide-section">
+                <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--text-white); text-transform: uppercase;">JAK NAKLEIĆ FOLIĘ?</h2>
+                <p style="color: var(--text-gray); margin-bottom: 2rem;">Postępuj zgodnie z instrukcją, aby zapewnić trwałość do 5 lat.</p>
+                <div class="guide-grid">
+                    <div class="guide-card"><div class="guide-num">01</div><h5>ODTŁUSZCZENIE</h5><p>Umyj i odtłuść powierzchnię alkoholem (IPA).</p></div>
+                    <div class="guide-card"><div class="guide-num">02</div><h5>DOCISK</h5><p>Mocno dociskaj folię transferową ręką lub kartą.</p></div>
+                    <div class="guide-card"><div class="guide-num">03</div><h5>APLIKACJA</h5><p>Odklej podkład i przyklej na równą powierzchnię.</p></div>
+                    <div class="guide-card"><div class="guide-num">04</div><h5>ZDEJMOWANIE</h5><p>Powoli odklejaj taśmę ciągnąc płasko przy powierzchni.</p></div>
                 </div>
-                <button class="gallery-arrow prev" id="galleryPrev" aria-label="Poprzednie zdjęcie">‹</button>
-                <button class="gallery-arrow next" id="galleryNext" aria-label="Następne zdjęcie">›</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal" id="stickerModal">
+        <div class="modal-box">
+            <button class="close-btn" id="closeBtn">&times;</button>
+            <div class="gallery-main">
+                <div class="modal-img-wrap" id="modalImgWrap"><img id="modalImg" src=""></div>
+                <button class="gallery-arrow prev" id="galleryPrev">‹</button>
+                <button class="gallery-arrow next" id="galleryNext">›</button>
             </div>
             <div class="gallery-thumbs" id="galleryThumbs"></div>
-            <div class="gallery-counter" id="galleryCounter"></div>
-
-            <h2 class="modal-h2" id="modalTitle">NAZWA NAKLEJKI</h2>
-            <p class="modal-desc" id="modalDesc">Opis projektu naklejki.</p>
-
+            <h2 class="modal-h2" id="modalTitle">NAZWA</h2>
+            <p class="modal-desc" id="modalDesc">Opis</p>
             <div class="specs">
-                <div>
-                    <span>WYKOŃCZENIE</span>
-                    <strong id="modalFinish">—</strong>
-                </div>
-                <div>
-                    <span>ROZMIAR</span>
-                    <strong id="modalSize">—</strong>
-                </div>
+                <div><span>WYKOŃCZENIE</span><strong id="modalFinish">—</strong></div>
+                <div><span>ROZMIAR</span><strong id="modalSize">—</strong></div>
             </div>
-
             <div class="actions">
-                <a id="modalDmBtn" href="#" target="_blank" rel="noopener" class="btn-black">ZAMÓW NA INSTA DM</a>
-                <button class="btn-outline" id="shareBtn" type="button">UDOSTĘPNIJ</button>
-                <button class="btn-outline" id="copyLinkBtn" type="button">LINK</button>
-                <button class="btn-outline" id="copyBtn" type="button">KOPIUJ WZÓR</button>
-                <button class="btn-outline" id="modalLikeBtn" type="button">♡</button>
+                <a id="modalDmBtn" href="#" target="_blank" class="btn-black">ZAMÓW NA DM</a>
+                <button class="btn-outline" id="copyBtn">KOPIUJ</button>
+                <button class="btn-outline" id="modalLikeBtn">♡</button>
             </div>
         </div>
     </div>
 
-    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Powiększone zdjęcie">
-        <button class="lightbox-close" id="lightboxClose" aria-label="Zamknij">&times;</button>
-        <img id="lightboxImg" src="" alt="">
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <img id="lightboxImg" src="">
     </div>
+
     <footer>
         <p>&copy; 2026 ADHESIVE LAB. WSZYSTKIE PRAWA ZASTRZEŻONE.</p>
     </footer>
+
     <script>
         const INSTAGRAM_USERNAME = "adhesive.lab";
         const NEW_DAYS = 14;
 
+        // DANE KATALOGU
         const stickers = [
-            {
-                id: 1,
-                title: "ADHESIVE TRIBAL SKULL",
-                category: "HOLO WYCIĘCIE",
-                finish: "Holograficzne / Wodoodporne",
-                size: "8 x 8 CM",
-                desc: "Gotycki motyw czaszki z ostrymi krawędziami. Mieniące się refleksy holograficzne pod kątem światła.",
-                date: "2026-10-20",
-                images: [
-                    "https://picsum.photos/id/1062/400/400",
-                    "https://picsum.photos/id/1063/400/400",
-                    "https://picsum.photos/id/1064/400/400"
-                ]
-            },
-            {
-                id: 2,
-                title: "CHROME STARBURST",
-                category: "MATOWY CHROM",
-                finish: "Matowy Winyl Premium",
-                size: "10 x 5 CM",
-                desc: "Stylówka Y2K z chromowanym wykończeniem i głębokim matowym czarnym tłem.",
-                date: "2026-09-15",
-                images: [
-                    "https://picsum.photos/id/1069/400/400",
-                    "https://picsum.photos/id/1070/400/400"
-                ]
-            },
-            {
-                id: 3,
-                title: "DARK MATTER LOGO",
-                category: "BŁYSZCZĄCY WINYL",
-                finish: "Błysk UV / Odporna na deszcz",
-                size: "7 x 7 CM",
-                desc: "Klasyczne logo z odporną warstwą ochronną UV. Wycięte idealnie po obrysie.",
-                date: "2026-08-01",
-                images: [
-                    "https://picsum.photos/id/1025/400/400"
-                ]
-            }
+            { id: 1, title: "TRIBAL SKULL", category: "HOLO", finish: "Holograficzne", size: "8x8 CM", desc: "Gotycki motyw czaszki.", date: "2026-10-20", images: ["https://picsum.photos/id/1062/400/400", "https://picsum.photos/id/1063/400/400"] },
+            { id: 2, title: "CHROME STAR", category: "CHROM", finish: "Matowy Winyl", size: "10x5 CM", desc: "Stylówka Y2K.", date: "2026-09-15", images: ["https://picsum.photos/id/1069/400/400"] },
+            { id: 3, title: "DARK LOGO", category: "WINYL", finish: "Błysk UV", size: "7x7 CM", desc: "Klasyczne logo.", date: "2026-08-01", images: ["https://picsum.photos/id/1025/400/400"] }
         ];
 
         const grid = document.getElementById('stickerGrid');
         const modal = document.getElementById('stickerModal');
         const filtersEl = document.getElementById('filters');
-        const countEl = document.getElementById('stickerCount');
-        const closeBtn = document.getElementById('closeBtn');
-        const copyBtn = document.getElementById('copyBtn');
-        const copyLinkBtn = document.getElementById('copyLinkBtn');
-        const shareBtn = document.getElementById('shareBtn');
-        const dmBtn = document.getElementById('modalDmBtn');
-        const modalLikeBtn = document.getElementById('modalLikeBtn');
-        const searchInput = document.getElementById('searchInput');
-        const sortSelect = document.getElementById('sortSelect');
-        const galleryPrev = document.getElementById('galleryPrev');
-        const galleryNext = document.getElementById('galleryNext');
-        const galleryThumbs = document.getElementById('galleryThumbs');
-        const galleryCounter = document.getElementById('galleryCounter');
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        const modalImgWrap = document.getElementById('modalImgWrap');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const lightboxClose = document.getElementById('lightboxClose');
-        const miniHeader = document.getElementById('miniHeader');
-
+        
         let currentSticker = null;
-        let activeFilter = localStorage.getItem('filter') || 'WSZYSTKIE';
-        let sortMode = localStorage.getItem('sort') || 'default';
-        let searchQuery = localStorage.getItem('search') || '';
-        let lastFocused = null;
+        let activeFilter = 'WSZYSTKIE';
+        let sortMode = 'default';
+        let searchQuery = '';
+        let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
         let galleryImages = [];
         let galleryIndex = 0;
-        let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
 
-        stickers.forEach(s => {
-            if (!s.images || !s.images.length) {
-                s.images = s.img ? [s.img] : [];
-            }
+        // NAWIGACJA
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                document.querySelectorAll('.app-section').forEach(sec => sec.classList.remove('active'));
+                document.getElementById(tab.dataset.target).classList.add('active');
+            });
         });
 
-        const escapeHtml = (s) => String(s).replace(/[&<>"']/g, c => ({
-            '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-        }[c]));
+        // KREATOR
+        const previewIcon = document.getElementById('previewIcon');
+        const previewText = document.getElementById('previewText');
+        const handleText = document.getElementById('handleText');
+        const finalPrice = document.getElementById('finalPrice');
+        let qty = 1;
+        let basePrice = 24;
 
-        function placeholderFor(title) {
-            const initials = String(title).split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
-            const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
-                <rect width="100%" height="100%" fill="#111"/>
-                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
-                      font-family="Space Grotesk, sans-serif" font-size="42" fill="#444">${initials}</text>
-            </svg>`;
-            return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
-        }
+        const icons = {
+            instagram: '<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>',
+            tiktok: '<path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>',
+            youtube: '<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>',
+            none: ''
+        };
 
-        function isNew(s) {
-            if (!s.date) return false;
-            const d = new Date(s.date);
-            const diff = (Date.now() - d.getTime()) / (1000 * 60 * 60 * 24);
-            return diff >= 0 && diff <= NEW_DAYS;
-        }
-
-        function isLiked(id) { return wishlist.includes(id); }
-
-        function applyTheme(theme) {
-            document.body.classList.toggle('light', theme === 'light');
-            themeIcon.textContent = theme === 'light' ? '☀️' : '🌙';
-            localStorage.setItem('theme', theme);
-        }
-        function initTheme() {
-            const saved = localStorage.getItem('theme');
-            if (saved) applyTheme(saved);
-            else applyTheme(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-        }
-        themeToggle.addEventListener('click', () => {
-            applyTheme(document.body.classList.contains('light') ? 'dark' : 'light');
+        handleText.addEventListener('input', (e) => { previewText.textContent = e.target.value.trim().toUpperCase() || '@TWOJ_NICK'; });
+        
+        document.querySelectorAll('#iconOptions .opt-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#iconOptions .opt-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                previewIcon.innerHTML = icons[btn.dataset.icon];
+                previewIcon.style.display = btn.dataset.icon === 'none' ? 'none' : 'block';
+            });
         });
 
-        function getCategories() {
-            return ['WSZYSTKIE', ...new Set(stickers.map(s => s.category))];
-        }
+        document.querySelectorAll('#fontOptions .opt-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#fontOptions .opt-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                previewText.className = 'preview-text ' + btn.dataset.font;
+            });
+        });
 
+        document.querySelectorAll('#colorOptions .opt-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#colorOptions .opt-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const color = btn.dataset.color;
+                if(['holo', 'silver', 'gold'].includes(color)) {
+                    const grads = { holo: 'linear-gradient(45deg, #ff00cc, #3333ff, #00ffcc)', silver: 'linear-gradient(45deg, #999, #fff, #999)', gold: 'linear-gradient(45deg, #bf953f, #fcf6ba, #b38728)' };
+                    previewText.style.background = grads[color];
+                    previewText.style.webkitBackgroundClip = 'text';
+                    previewText.style.webkitTextFillColor = 'transparent';
+                    previewText.style.color = 'transparent';
+                    previewIcon.style.fill = color === 'gold' ? '#fcf6ba' : '#fff';
+                } else {
+                    previewText.style.background = 'none';
+                    previewText.style.webkitTextFillColor = 'initial';
+                    previewText.style.color = color;
+                    previewIcon.style.fill = color;
+                }
+            });
+        });
+
+        document.querySelectorAll('#sizeOptions .opt-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#sizeOptions .opt-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                basePrice = parseInt(btn.dataset.price);
+                const size = parseInt(btn.dataset.size);
+                let scale = size === 15 ? 0.8 : size === 20 ? 1 : size === 25 ? 1.2 : size === 30 ? 1.4 : size === 40 ? 1.7 : 2;
+                document.getElementById('stickerPreview').style.transform = `scale(${scale})`;
+                updatePrice();
+            });
+        });
+
+        document.getElementById('qtyMinus').addEventListener('click', () => { if(qty > 1) { qty--; document.getElementById('qtyDisplay').textContent = qty; updatePrice(); } });
+        document.getElementById('qtyPlus').addEventListener('click', () => { qty++; document.getElementById('qtyDisplay').textContent = qty; updatePrice(); });
+        function updatePrice() { finalPrice.textContent = (basePrice * qty).toFixed(2).replace('.', ',') + ' zł'; }
+
+        document.getElementById('addToCartBtn').addEventListener('click', () => {
+            const text = `Siema! Chcę zamówić customową naklejkę:\nTekst: ${handleText.value}\nRozmiar: ${document.querySelector('#sizeOptions .active').innerText}\nIlość: ${qty} szt.\nCena: ${finalPrice.textContent}`;
+            window.open(`https://ig.me/m/${INSTAGRAM_USERNAME}?text=${encodeURIComponent(text)}`, '_blank');
+        });
+
+        // KATALOG LOGIKA
         function renderFilters() {
-            let html = getCategories().map(cat => `
-                <button type="button" class="chip ${cat === activeFilter ? 'is-active' : ''}"
-                        data-cat="${escapeHtml(cat)}">${escapeHtml(cat)}</button>
+            let html = ['WSZYSTKIE', ...new Set(stickers.map(s => s.category))].map(cat => `<button class="chip ${cat === activeFilter ? 'is-active' : ''}" data-cat="${cat}">${cat}</button>`).join('');
+            html += `<button class="chip chip-like ${activeFilter === 'ULUBIONE' ? 'is-active' : ''}" data-cat="ULUBIONE">♥ ULUBIONE (${wishlist.length})</button>`;
+            filtersEl.innerHTML = html;
+            filtersEl.querySelectorAll('.chip').forEach(btn => btn.addEventListener('click', () => { activeFilter = btn.dataset.cat; renderFilters(); renderGrid(); }));
+        }
+
+        function renderGrid() {
+            let list = activeFilter === 'ULUBIONE' ? stickers.filter(s => wishlist.includes(s.id)) : activeFilter === 'WSZYSTKIE' ? [...stickers] : stickers.filter(s => s.category === activeFilter);
+            if (searchQuery) list = list.filter(s => s.title.toLowerCase().includes(searchQuery) || s.desc.toLowerCase().includes(searchQuery));
+            if (sortMode === 'name-asc') list.sort((a,b) => a.title.localeCompare(b.title));
+            if (sortMode === 'name-desc') list.sort((a,b) => b.title.localeCompare(a.title));
+            
+            if (!list.length) { grid.innerHTML = '<p class="empty">BRAK NAKLEJEK.</p>'; return; }
+            grid.innerHTML = list.map((s, i) => `
+                <article class="card" style="--i:${i}" data-id="${s.id}">
+                    <div class="card-img">
+                        <button class="like-btn ${wishlist.includes(s.id) ? 'is-liked' : ''}" data-like="${s.id}"></button>
+                        <img class="primary" src="${s.images[0]}">
+                        ${s.images[1] ? `<img class="secondary" src="${s.images[1]}">` : ''}
+                    </div>
+                    <div class="card-info"><div class="card-title">${s.title}</div><div class="card-tag">${s.category}</div></div>
+                </article>
             `).join('');
 
-            html += `
-                <button type="button" class="chip chip-like ${activeFilter === 'ULUBIONE' ? 'is-active' : ''}"
-                        data-cat="ULUBIONE">♥ ULUBIONE (${wishlist.length})</button>
-            `;
-
-            filtersEl.innerHTML = html;
-
-            filtersEl.querySelectorAll('.chip').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    activeFilter = btn.dataset.cat;
-                    localStorage.setItem('filter', activeFilter);
-                    renderFilters();
-                    render();
-                });
-            });
+            grid.querySelectorAll('.card').forEach(card => card.addEventListener('click', e => { if(!e.target.closest('.like-btn')) openModal(Number(card.dataset.id)); }));
+            grid.querySelectorAll('.like-btn').forEach(btn => btn.addEventListener('click', e => { e.stopPropagation(); toggleLike(Number(btn.dataset.like), btn); }));
         }
 
-        function render() {
-            let list = activeFilter === 'ULUBIONE'
-                ? stickers.filter(s => isLiked(s.id))
-                : activeFilter === 'WSZYSTKIE'
-                    ? [...stickers]
-                    : stickers.filter(s => s.category === activeFilter);
-
-            if (searchQuery) {
-                list = list.filter(s =>
-                    s.title.toLowerCase().includes(searchQuery) ||
-                    s.desc.toLowerCase().includes(searchQuery)
-                );
-            }
-
-            if (sortMode === 'name-asc')  list.sort((a,b) => a.title.localeCompare(b.title));
-            if (sortMode === 'name-desc') list.sort((a,b) => b.title.localeCompare(a.title));
-            if (sortMode === 'newest')    list.sort((a,b) => new Date(b.date||0) - new Date(a.date||0));
-
-            countEl.textContent = stickers.length;
-
-            if (!list.length) {
-                grid.innerHTML = `<p class="empty">BRAK NAKLEJEK SPEŁNIAJĄCYCH KRYTERIA.</p>`;
-                return;
-            }
-
-            grid.innerHTML = list.map((s, i) => {
-                const first = s.images[0] || placeholderFor(s.title);
-                const second = s.images[1] || first;
-                const hasSecond = s.images.length > 1;
-                const liked = isLiked(s.id);
-                const newBadge = isNew(s) ? `<span class="badge-new">NOWOŚĆ</span>` : '';
-
-                return `
-                <article class="card" style="--i:${i}" data-id="${s.id}" tabindex="0" role="button"
-                         aria-label="Pokaż szczegóły: ${escapeHtml(s.title)}">
-                    <div class="card-img">
-                        ${newBadge}
-                        <button class="like-btn ${liked ? 'is-liked' : ''}" data-like="${s.id}"
-                                aria-label="Dodaj do ulubionych" type="button"></button>
-                        <img class="primary" src="${escapeHtml(first)}" alt="${escapeHtml(s.title)}"
-                             loading="lazy"
-                             onerror="this.onerror=null;this.src='${placeholderFor(s.title)}'">
-                        ${hasSecond ? `<img class="secondary" src="${escapeHtml(second)}" alt="" loading="lazy">` : ''}
-                    </div>
-                    <div class="card-info">
-                        <div class="card-title">${escapeHtml(s.title)}</div>
-                        <div class="card-tag">${escapeHtml(s.category)}</div>
-                    </div>
-                </article>`;
-            }).join('');
-
-            grid.querySelectorAll('.card').forEach(card => {
-                const open = () => openModal(Number(card.dataset.id));
-                card.addEventListener('click', e => {
-                    if (e.target.closest('.like-btn')) return;
-                    open();
-                });
-                card.addEventListener('keydown', e => {
-                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
-                });
-            });
-
-            grid.querySelectorAll('.like-btn').forEach(btn => {
-                btn.addEventListener('click', e => {
-                    e.stopPropagation();
-                    toggleLike(Number(btn.dataset.like), btn);
-                });
-            });
-        }
-
-        function flyToHeart(sticker, fromEl) {
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-            const chip = filtersEl.querySelector('.chip-like');
-            if (!chip) return;
-
-            const imgEl = fromEl.closest('.card')?.querySelector('.card-img img.primary');
-            const imgSrc = imgEl ? imgEl.src : null;
-
-            const startRect = fromEl.getBoundingClientRect();
-            const startX = startRect.left + startRect.width / 2;
-            const startY = startRect.top + startRect.height / 2;
-
-            const endRect = chip.getBoundingClientRect();
-            const endX = endRect.left + endRect.width / 2;
-            const endY = endRect.top + endRect.height / 2;
-
-            const burst = document.createElement('div');
-            burst.className = 'like-burst';
-            burst.style.left = startX + 'px';
-            burst.style.top  = startY + 'px';
-            document.body.appendChild(burst);
-            setTimeout(() => burst.remove(), 500);
-
-            fromEl.classList.add('burst');
-            setTimeout(() => fromEl.classList.remove('burst'), 400);
-
-            if (imgSrc) {
-                const fly = document.createElement('img');
-                fly.src = imgSrc;
-                fly.className = 'fly-sticker';
-                fly.alt = '';
-                document.body.appendChild(fly);
-
-                const midX = (startX + endX) / 2 + (endX - startX) * 0.15;
-                const midY = Math.min(startY, endY) - 120;
-
-                const startTime = performance.now();
-                const duration = 750;
-
-                fly.style.left = startX + 'px';
-                fly.style.top  = startY + 'px';
-                fly.style.transform = 'translate(-50%, -50%) scale(1)';
-
-                function frame(now) {
-                    const t = Math.min((now - startTime) / duration, 1);
-                    const e = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-
-                    const x = (1 - e) * (1 - e) * startX + 2 * (1 - e) * e * midX + e * e * endX;
-                    const y = (1 - e) * (1 - e) * startY + 2 * (1 - e) * e * midY + e * e * endY;
-
-                    const scale = 1 - 0.6 * e;
-                    const rot   = e * 360;
-                    const op    = t < 0.85 ? 1 : (1 - (t - 0.85) / 0.15);
-
-                    fly.style.left = x + 'px';
-                    fly.style.top  = y + 'px';
-                    fly.style.transform = `translate(-50%, -50%) scale(${scale}) rotate(${rot}deg)`;
-                    fly.style.opacity = op;
-
-                    if (t < 1) requestAnimationFrame(frame);
-                    else fly.remove();
-                }
-                requestAnimationFrame(frame);
-            }
-
-            setTimeout(() => {
-                chip.classList.add('pulse');
-                setTimeout(() => chip.classList.remove('pulse'), 600);
-            }, 720);
-        }
-
-        function toggleLike(id, triggerEl) {
-            const i = wishlist.indexOf(id);
-            const wasLiked = i >= 0;
-
-            if (wasLiked) {
-                wishlist.splice(i, 1);
-                if (triggerEl) {
-                    triggerEl.classList.add('unburst');
-                    setTimeout(() => triggerEl.classList.remove('unburst'), 300);
-                }
-            } else {
-                wishlist.push(id);
-                if (triggerEl) {
-                    const sticker = stickers.find(s => s.id === id);
-                    if (sticker) flyToHeart(sticker, triggerEl);
-                }
-            }
-
+        function toggleLike(id, btn) {
+            const idx = wishlist.indexOf(id);
+            if (idx >= 0) wishlist.splice(idx, 1); else wishlist.push(id);
             localStorage.setItem('wishlist', JSON.stringify(wishlist));
-            renderFilters();
-            render();
-            if (currentSticker && currentSticker.id === id) updateModalLike();
+            renderFilters(); renderGrid();
         }
 
-        function updateModalLike() {
-            if (!currentSticker) return;
-            const liked = isLiked(currentSticker.id);
-            modalLikeBtn.classList.toggle('is-liked', liked);
-            modalLikeBtn.textContent = liked ? '♥' : '♡';
-        }
-
-        function showGalleryImage(index) {
-            if (!galleryImages.length) return;
-            galleryIndex = Math.max(0, Math.min(index, galleryImages.length - 1));
-            document.getElementById('modalImg').src = galleryImages[galleryIndex];
-            galleryCounter.textContent = galleryImages.length > 1
-                ? `${galleryIndex + 1} / ${galleryImages.length}`
-                : '';
-            galleryPrev.disabled = galleryIndex === 0;
-            galleryNext.disabled = galleryIndex === galleryImages.length - 1;
-            galleryThumbs.querySelectorAll('.gallery-thumb').forEach((t, i) => {
-                t.classList.toggle('is-active', i === galleryIndex);
-            });
-        }
-
-        function buildGallery(images) {
-            galleryImages = images;
-            galleryIndex = 0;
-            galleryThumbs.innerHTML = images.length > 1 ? images.map((src, i) => `
-                <button class="gallery-thumb ${i === 0 ? 'is-active' : ''}" data-idx="${i}" type="button">
-                    <img src="${escapeHtml(src)}" alt="" loading="lazy">
-                </button>
-            `).join('') : '';
-            galleryThumbs.querySelectorAll('.gallery-thumb').forEach(btn => {
-                btn.addEventListener('click', () => showGalleryImage(Number(btn.dataset.idx)));
-            });
-            const single = images.length <= 1;
-            galleryPrev.style.display = single ? 'none' : '';
-            galleryNext.style.display = single ? 'none' : '';
-            showGalleryImage(0);
-        }
-
-        galleryPrev.addEventListener('click', () => showGalleryImage(galleryIndex - 1));
-        galleryNext.addEventListener('click', () => showGalleryImage(galleryIndex + 1));
-
-        function openModal(id, updateHash = true) {
+        // MODAL
+        document.getElementById('searchInput').addEventListener('input', e => { searchQuery = e.target.value.toLowerCase(); renderGrid(); });
+        document.getElementById('sortSelect').addEventListener('change', e => { sortMode = e.target.value; renderGrid(); });
+        
+        function openModal(id) {
             currentSticker = stickers.find(s => s.id === id);
-            if (!currentSticker) return;
-
-            lastFocused = document.activeElement;
-
-            buildGallery(currentSticker.images.length ? currentSticker.images : [placeholderFor(currentSticker.title)]);
-            document.getElementById('modalImg').alt = currentSticker.title;
+            if(!currentSticker) return;
+            galleryImages = currentSticker.images; galleryIndex = 0;
             document.getElementById('modalTitle').innerText = currentSticker.title;
             document.getElementById('modalDesc').innerText = currentSticker.desc;
-            document.getElementById('modalFinish').innerText = currentSticker.finish;
             document.getElementById('modalSize').innerText = currentSticker.size;
-
-            const msg = encodeURIComponent(
-                `Siema! Chcę zapytać / zamówić naklejkę: ${currentSticker.title} (${currentSticker.size})`
-            );
-            dmBtn.href = `https://ig.me/m/${INSTAGRAM_USERNAME}?text=${msg}`;
-
-            copyBtn.textContent = 'KOPIUJ WZÓR';
-            copyBtn.disabled = false;
-            copyLinkBtn.textContent = 'LINK';
-
-            updateModalLike();
-
+            document.getElementById('modalFinish').innerText = currentSticker.finish;
+            document.getElementById('modalDmBtn').href = `https://ig.me/m/${INSTAGRAM_USERNAME}?text=${encodeURIComponent(`Chcę zamówić: ${currentSticker.title}`)}`;
+            updateGallery();
             modal.classList.add('is-open');
-            document.body.style.overflow = 'hidden';
-            closeBtn.focus();
-
-            if (updateHash) history.replaceState(null, '', `#sticker-${id}`);
         }
 
-        function closeModal() {
-            modal.classList.remove('is-open');
-            document.body.style.overflow = '';
-            if (lastFocused) lastFocused.focus();
-            history.replaceState(null, '', location.pathname + location.search);
+        function updateGallery() {
+            document.getElementById('modalImg').src = galleryImages[galleryIndex];
+            document.getElementById('galleryPrev').disabled = galleryIndex === 0;
+            document.getElementById('galleryNext').disabled = galleryIndex === galleryImages.length - 1;
         }
 
-        closeBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+        document.getElementById('closeBtn').addEventListener('click', () => modal.classList.remove('is-open'));
+        document.getElementById('galleryPrev').addEventListener('click', () => { galleryIndex--; updateGallery(); });
+        document.getElementById('galleryNext').addEventListener('click', () => { galleryIndex++; updateGallery(); });
+        document.getElementById('modalImgWrap').addEventListener('click', () => { document.getElementById('lightboxImg').src = galleryImages[galleryIndex]; document.getElementById('lightbox').classList.add('is-open'); });
+        document.getElementById('lightboxClose').addEventListener('click', () => document.getElementById('lightbox').classList.remove('is-open'));
 
-        function openLightbox(src) {
-            lightboxImg.src = src;
-            lightbox.classList.add('is-open');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeLightbox() {
-            lightbox.classList.remove('is-open');
-            if (!modal.classList.contains('is-open')) document.body.style.overflow = '';
-        }
-        modalImgWrap.addEventListener('click', () => {
-            const src = document.getElementById('modalImg').src;
-            if (src) openLightbox(src);
-        });
-        lightboxClose.addEventListener('click', closeLightbox);
-        lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-
-        document.addEventListener('keydown', e => {
-            if (lightbox.classList.contains('is-open')) {
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowLeft') showGalleryImage(galleryIndex - 1);
-                if (e.key === 'ArrowRight') showGalleryImage(galleryIndex + 1);
-                return;
-            }
-            if (!modal.classList.contains('is-open')) return;
-            if (e.key === 'Escape') closeModal();
-            if (e.key === 'ArrowLeft') showGalleryImage(galleryIndex - 1);
-            if (e.key === 'ArrowRight') showGalleryImage(galleryIndex + 1);
-        });
-
-        let touchStartX = 0;
-        modal.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
-        modal.addEventListener('touchend', e => {
-            if (!modal.classList.contains('is-open')) return;
-            const dx = e.changedTouches[0].screenX - touchStartX;
-            if (Math.abs(dx) < 50) return;
-            showGalleryImage(dx > 0 ? galleryIndex - 1 : galleryIndex + 1);
-        }, { passive: true });
-
-        async function copyText(text) {
-            try {
-                await navigator.clipboard.writeText(text);
-                return true;
-            } catch {
-                const ta = document.createElement('textarea');
-                ta.value = text; document.body.appendChild(ta);
-                ta.select(); document.execCommand('copy'); ta.remove();
-                return true;
-            }
-        }
-
-        copyBtn.addEventListener('click', async () => {
-            if (!currentSticker) return;
-            await copyText(`Siema! Zamawiam naklejkę: ${currentSticker.title} (${currentSticker.size})`);
-            copyBtn.textContent = 'SKOPIOWANO ✓';
-            copyBtn.disabled = true;
-            setTimeout(() => { copyBtn.textContent = 'KOPIUJ WZÓR'; copyBtn.disabled = false; }, 2000);
-        });
-
-        copyLinkBtn.addEventListener('click', async () => {
-            if (!currentSticker) return;
-            const url = `${location.origin}${location.pathname}#sticker-${currentSticker.id}`;
-            await copyText(url);
-            copyLinkBtn.textContent = 'SKOPIOWANO ✓';
-            setTimeout(() => { copyLinkBtn.textContent = 'LINK'; }, 2000);
-        });
-
-        shareBtn.addEventListener('click', async () => {
-            if (!currentSticker) return;
-            const url = `${location.origin}${location.pathname}#sticker-${currentSticker.id}`;
-            const shareData = {
-                title: `ADHESIVE LAB // ${currentSticker.title}`,
-                text: `Zobacz tę naklejkę: ${currentSticker.title}`,
-                url
-            };
-            if (navigator.share) {
-                try { await navigator.share(shareData); } catch {}
-            } else {
-                await copyText(url);
-                shareBtn.textContent = 'LINK SKOPIOWANY ✓';
-                setTimeout(() => { shareBtn.textContent = 'UDOSTĘPNIJ'; }, 2000);
-            }
-        });
-
-        modalLikeBtn.addEventListener('click', () => {
-            if (!currentSticker) return;
-            toggleLike(currentSticker.id, modalLikeBtn);
-        });
-
-        searchInput.value = searchQuery;
-        searchInput.addEventListener('input', e => {
-            searchQuery = e.target.value.toLowerCase().trim();
-            localStorage.setItem('search', searchQuery);
-            render();
-        });
-
-        sortSelect.value = sortMode;
-        sortSelect.addEventListener('change', () => {
-            sortMode = sortSelect.value;
-            localStorage.setItem('sort', sortMode);
-            render();
-        });
-
-        window.addEventListener('scroll', () => {
-            miniHeader.classList.toggle('is-visible', window.scrollY > 300);
-        }, { passive: true });
-
-        function checkHash() {
-            const m = location.hash.match(/^#sticker-(\d+)$/);
-            if (m) {
-                const id = Number(m[1]);
-                if (stickers.find(s => s.id === id)) {
-                    openModal(id, false);
-                }
-            }
-        }
-
-        initTheme();
+        // START
         renderFilters();
-        render();
-        checkHash();
-
-        window.addEventListener('hashchange', checkHash);
+        renderGrid();
     </script>
 </body>
 </html>
