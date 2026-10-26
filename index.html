@@ -304,21 +304,21 @@
         const $ = (sel, root=document) => root.querySelector(sel);
         const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
 
-        // PODMIENIONY KATALOG Z TWOIMI NAZWAMI PLIKÓW
+        // PODMIENIONY KATALOG Z TWOIMI NAZWAMI PLIKÓW (PAMIĘTAJ O .png!)
         const CATALOG = [
-            { id:'cat-1', title:'ANTISOCIAL', fontClass:'font-gothic', price:25, size:'20cm', dims:'20 × 4.0 cm', image:'zdjecia/antisocial.jpg' },
-            { id:'cat-2', title:'DRIVE SAFE', fontClass:'font-minimal', price:22, size:'20cm', dims:'20 × 3.0 cm', image:'zdjecia/drivefase.jpg' },
-            { id:'cat-3', title:'GEN GAR', fontClass:'font-jdm', price:24, size:'20cm', dims:'20 × 3.2 cm', image:'zdjecia/gengar.jpg' },
-            { id:'cat-4', title:'HOT GIRL CLUB', fontClass:'font-streetwear', price:25, size:'20cm', dims:'20 × 3.5 cm', image:'zdjecia/hotgirlclub.jpg' },
-            { id:'cat-5', title:'I MISS YOU', fontClass:'font-minimal', price:22, size:'20cm', dims:'20 × 3.0 cm', image:'zdjecia/imissyou.jpg' },
-            { id:'cat-6', title:'KRZYŻE', fontClass:'font-streetwear', price:29, size:'25cm', dims:'25 × 3.5 cm', image:'zdjecia/krzyze.jpg' },
-            { id:'cat-7', title:'KUROMI', fontClass:'font-racing', price:26, size:'20cm', dims:'20 × 4.0 cm', image:'zdjecia/kuromi.jpg' },
-            { id:'cat-8', title:'LOW N SLOW', fontClass:'font-jdm', price:24, size:'20cm', dims:'20 × 3.2 cm', image:'zdjecia/lownslow.jpg' },
-            { id:'cat-9', title:'LUCKY & BLESSED', fontClass:'font-gothic', price:28, size:'25cm', dims:'25 × 4.5 cm', image:'zdjecia/luckyblessed.jpg' },
-            { id:'cat-10', title:'MAKE MONEY NOT FRIENDS', fontClass:'font-streetwear', price:26, size:'20cm', dims:'20 × 4.0 cm', image:'zdjecia/makemoneynotfriends.jpg' },
-            { id:'cat-11', title:'NO GOOD RACING', fontClass:'font-racing', price:29, size:'25cm', dims:'25 × 3.5 cm', image:'zdjecia/nogoodracing.jpg' },
-            { id:'cat-12', title:'SLOW CAR CLUB', fontClass:'font-minimal', price:25, size:'20cm', dims:'20 × 3.0 cm', image:'zdjecia/slowcarclub.jpg' },
-            { id:'cat-13', title:'TRIBAL KITTY', fontClass:'font-streetwear', price:27, size:'25cm', dims:'25 × 4.0 cm', image:'zdjecia/tribalkitty.jpg' }
+            { id:'cat-1', title:'ANTISOCIAL', fontClass:'font-gothic', price:25, size:'20cm', dims:'20 × 4.0 cm', image:'zdjecia/antisocial.png' },
+            { id:'cat-2', title:'DRIVE SAFE', fontClass:'font-minimal', price:22, size:'20cm', dims:'20 × 3.0 cm', image:'zdjecia/drivefase.png' },
+            { id:'cat-3', title:'GEN GAR', fontClass:'font-jdm', price:24, size:'20cm', dims:'20 × 3.2 cm', image:'zdjecia/gengar.png' },
+            { id:'cat-4', title:'HOT GIRL CLUB', fontClass:'font-streetwear', price:25, size:'20cm', dims:'20 × 3.5 cm', image:'zdjecia/hotgirlclub.png' },
+            { id:'cat-5', title:'I MISS YOU', fontClass:'font-minimal', price:22, size:'20cm', dims:'20 × 3.0 cm', image:'zdjecia/imissyou.png' },
+            { id:'cat-6', title:'KRZYŻE', fontClass:'font-streetwear', price:29, size:'25cm', dims:'25 × 3.5 cm', image:'zdjecia/krzyze.png' },
+            { id:'cat-7', title:'KUROMI', fontClass:'font-racing', price:26, size:'20cm', dims:'20 × 4.0 cm', image:'zdjecia/kuromi.png' },
+            { id:'cat-8', title:'LOW N SLOW', fontClass:'font-jdm', price:24, size:'20cm', dims:'20 × 3.2 cm', image:'zdjecia/lownslow.png' },
+            { id:'cat-9', title:'LUCKY & BLESSED', fontClass:'font-gothic', price:28, size:'25cm', dims:'25 × 4.5 cm', image:'zdjecia/luckyblessed.png' },
+            { id:'cat-10', title:'MAKE MONEY NOT FRIENDS', fontClass:'font-streetwear', price:26, size:'20cm', dims:'20 × 4.0 cm', image:'zdjecia/makemoneynotfriends.png' },
+            { id:'cat-11', title:'NO GOOD RACING', fontClass:'font-racing', price:29, size:'25cm', dims:'25 × 3.5 cm', image:'zdjecia/nogoodracing.png' },
+            { id:'cat-12', title:'SLOW CAR CLUB', fontClass:'font-minimal', price:25, size:'20cm', dims:'20 × 3.0 cm', image:'zdjecia/slowcarclub.png' },
+            { id:'cat-13', title:'TRIBAL KITTY', fontClass:'font-streetwear', price:27, size:'25cm', dims:'25 × 4.0 cm', image:'zdjecia/tribalkitty.png' }
         ];
         
         const CATALOG_COLORS = [
@@ -437,9 +437,9 @@
                         <i class="fa-${isFav ? 'solid' : 'regular'} fa-heart"></i>
                     </button>
                     <div>
-                        <!-- ZMIENIONY DIV NA ZDJĘCIA -->
+                        <!-- ZMIENIONY DIV NA ZDJĘCIA Z ID -->
                         <div class="bg-mono-950 h-32 sm:h-48 rounded flex items-center justify-center p-2 sm:p-4 mb-2 sm:mb-4 border border-mono-850 group-hover:bg-mono-900 transition relative overflow-hidden">
-                            <img src="${item.image}" alt="${item.title}" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                            <img src="${item.image}" id="img-${item.id}" alt="${item.title}" class="w-full h-full object-contain group-hover:scale-105 transition-all duration-300">
                         </div>
                         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-baseline mb-1"><h3 class="font-bold text-white text-[10px] sm:text-sm truncate w-full">${item.title.toUpperCase()}</h3><span class="font-mono text-[10px] sm:text-sm font-bold text-white">${item.price} zł</span></div>
                         <p class="text-[9px] sm:text-xs text-mono-400 mb-3 sm:mb-4">Wymiary: ${item.dims}</p>
@@ -460,8 +460,28 @@
             e.preventDefault();
             const card = btn.closest('.catalog-card');
             card.dataset.selectedColor = colorName;
+            
+            // Aktualizacja wyglądu przycisków
             card.querySelectorAll('button[onclick^="changeCatColor"]').forEach(b => b.className = 'border border-mono-800 bg-mono-950 text-mono-400 py-1 px-0.5 sm:py-1.5 sm:px-1 rounded-sm text-[9px] sm:text-[11px] font-semibold flex items-center justify-center space-x-1 transition');
             btn.className = 'border border-white bg-mono-800 text-white py-1 px-0.5 sm:py-1.5 sm:px-1 rounded-sm text-[9px] sm:text-[11px] font-semibold flex items-center justify-center space-x-1 transition';
+
+            // EFEKT WIZUALNY NA ZDJĘCIU
+            const img = card.querySelector('img');
+            if (!img) return;
+
+            // Resetujemy filtry
+            img.style.filter = 'none';
+            img.style.opacity = '1';
+
+            if (colorName === 'Czarny') {
+                // Zamienia czarne linie na białe (idealne dla przezroczystego PNG)
+                img.style.filter = 'invert(1) brightness(2)'; 
+            } else if (colorName === 'Chrom') {
+                // Srebrny/metaliczny efekt
+                img.style.filter = 'invert(1) contrast(1.5) brightness(1.5) drop-shadow(0 0 2px rgba(255,255,255,0.5))';
+            } else if (colorName === 'Biały') {
+                img.style.filter = 'none'; // Normalny widok
+            }
         };
 
         window.toggleFav = function(e, id, btn) {
