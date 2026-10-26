@@ -29,7 +29,6 @@
         .font-gothic    { font-family:'UnifrakturMaguntia',serif; font-weight:400; font-size:1.15em; }
         .font-jdm       { font-family:'Montserrat',sans-serif; font-weight:900; font-style:italic; letter-spacing:-.02em; transform:skewX(-12deg); text-transform:uppercase; }
 
-        /* === PRZYWRÓCONE KRĘCĄCE SIĘ LOGO 3D === */
         #logoStage {
             position: relative;
             height: 120px;
@@ -101,21 +100,18 @@
     <!-- HEADER -->
     <header class="sticky top-0 z-40 bg-mono-950/95 backdrop-blur-md border-b border-mono-800">
         
-        <!-- Kręcące się logo 3D -->
         <div id="logoStage">
             <a id="dvdLogo" href="#" aria-label="ADHESIVE — strona główna">adhesive</a>
         </div>
 
         <div class="relative max-w-7xl mx-auto px-2 sm:px-4 py-2 sm:py-3 flex items-center justify-center">
             
-            <!-- Menu (kafelki) -->
             <nav class="flex items-center gap-1.5 sm:gap-3 text-sm font-semibold tracking-wider overflow-x-auto w-full no-scrollbar pr-16 sm:pr-0 justify-center" aria-label="Nawigacja główna">
                 <button onclick="switchView('creator')" id="nav-creator" class="nav-tab px-3 sm:px-4 py-1.5 sm:py-2 rounded-sm uppercase text-[10px] sm:text-xs transition border-2 border-white bg-white text-black font-bold whitespace-nowrap">Kreator</button>
                 <button onclick="switchView('catalog')" id="nav-catalog" class="nav-tab px-3 sm:px-4 py-1.5 sm:py-2 rounded-sm uppercase text-[10px] sm:text-xs transition border border-mono-800 bg-mono-900 hover:bg-mono-800 text-mono-200 whitespace-nowrap">Gotowe Wzory</button>
                 <button onclick="switchView('instructions')" id="nav-instructions" class="nav-tab px-3 sm:px-4 py-1.5 sm:py-2 rounded-sm uppercase text-[10px] sm:text-xs transition border border-mono-800 bg-mono-900 hover:bg-mono-800 text-mono-200 whitespace-nowrap">Instrukcja</button>
             </nav>
 
-            <!-- Przycisk DM -->
             <a href="https://ig.me/m/adhesive.lab" target="_blank" rel="noopener" class="absolute right-2 sm:right-6 lg:right-8 top-1/2 -translate-y-1/2 px-2.5 py-1.5 sm:px-3 sm:py-2 bg-white hover:bg-gray-200 text-black font-bold rounded-sm transition flex items-center justify-center text-[10px] sm:text-xs tracking-wider uppercase shadow-lg" aria-label="Napisz na Instagramie">
                 <i class="fa-brands fa-instagram text-xs sm:text-base mr-1 sm:mr-1.5"></i> DM
             </a>
@@ -308,12 +304,23 @@
         const $ = (sel, root=document) => root.querySelector(sel);
         const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
 
+        // PODMIENIONY KATALOG Z TWOIMI NAZWAMI PLIKÓW
         const CATALOG = [
-            { id:'cat-1', title:'ANTY STOCK CARS CLUB', fontClass:'font-streetwear', price:29, size:'25cm', dims:'25 × 3.5 cm' },
-            { id:'cat-2', title:'Hunter Of Night',      fontClass:'font-gothic',     price:25, size:'20cm', dims:'20 × 4.0 cm' },
-            { id:'cat-3', title:'LOCAL HERO',           fontClass:'font-racing',     price:22, size:'20cm', dims:'20 × 3.0 cm' },
-            { id:'cat-4', title:'LOW & SLOW ///',       fontClass:'font-jdm',        price:24, size:'20cm', dims:'20 × 3.2 cm' },
+            { id:'cat-1', title:'ANTISOCIAL', fontClass:'font-gothic', price:25, size:'20cm', dims:'20 × 4.0 cm', image:'zdjecia/antisocial.jpg' },
+            { id:'cat-2', title:'DRIVE SAFE', fontClass:'font-minimal', price:22, size:'20cm', dims:'20 × 3.0 cm', image:'zdjecia/drivefase.jpg' },
+            { id:'cat-3', title:'GEN GAR', fontClass:'font-jdm', price:24, size:'20cm', dims:'20 × 3.2 cm', image:'zdjecia/gengar.jpg' },
+            { id:'cat-4', title:'HOT GIRL CLUB', fontClass:'font-streetwear', price:25, size:'20cm', dims:'20 × 3.5 cm', image:'zdjecia/hotgirlclub.jpg' },
+            { id:'cat-5', title:'I MISS YOU', fontClass:'font-minimal', price:22, size:'20cm', dims:'20 × 3.0 cm', image:'zdjecia/imissyou.jpg' },
+            { id:'cat-6', title:'KRZYŻE', fontClass:'font-streetwear', price:29, size:'25cm', dims:'25 × 3.5 cm', image:'zdjecia/krzyze.jpg' },
+            { id:'cat-7', title:'KUROMI', fontClass:'font-racing', price:26, size:'20cm', dims:'20 × 4.0 cm', image:'zdjecia/kuromi.jpg' },
+            { id:'cat-8', title:'LOW N SLOW', fontClass:'font-jdm', price:24, size:'20cm', dims:'20 × 3.2 cm', image:'zdjecia/lownslow.jpg' },
+            { id:'cat-9', title:'LUCKY & BLESSED', fontClass:'font-gothic', price:28, size:'25cm', dims:'25 × 4.5 cm', image:'zdjecia/luckyblessed.jpg' },
+            { id:'cat-10', title:'MAKE MONEY NOT FRIENDS', fontClass:'font-streetwear', price:26, size:'20cm', dims:'20 × 4.0 cm', image:'zdjecia/makemoneynotfriends.jpg' },
+            { id:'cat-11', title:'NO GOOD RACING', fontClass:'font-racing', price:29, size:'25cm', dims:'25 × 3.5 cm', image:'zdjecia/nogoodracing.jpg' },
+            { id:'cat-12', title:'SLOW CAR CLUB', fontClass:'font-minimal', price:25, size:'20cm', dims:'20 × 3.0 cm', image:'zdjecia/slowcarclub.jpg' },
+            { id:'cat-13', title:'TRIBAL KITTY', fontClass:'font-streetwear', price:27, size:'25cm', dims:'25 × 4.0 cm', image:'zdjecia/tribalkitty.jpg' }
         ];
+        
         const CATALOG_COLORS = [
             { name:'Biały', foil:'foil-white', dot:'bg-white border border-mono-400' },
             { name:'Czarny', foil:'foil-black', dot:'bg-mono-900 border border-mono-500' },
@@ -430,8 +437,9 @@
                         <i class="fa-${isFav ? 'solid' : 'regular'} fa-heart"></i>
                     </button>
                     <div>
-                        <div class="bg-mono-950 h-24 sm:h-36 rounded flex items-center justify-center p-2 sm:p-4 mb-2 sm:mb-4 border border-mono-850 group-hover:bg-mono-900 transition relative overflow-hidden">
-                            <span class="catalog-preview ${item.fontClass} text-sm sm:text-xl ${def.foil} tracking-wider text-center transition-all duration-300 truncate max-w-full">${item.title}</span>
+                        <!-- ZMIENIONY DIV NA ZDJĘCIA -->
+                        <div class="bg-mono-950 h-32 sm:h-48 rounded flex items-center justify-center p-2 sm:p-4 mb-2 sm:mb-4 border border-mono-850 group-hover:bg-mono-900 transition relative overflow-hidden">
+                            <img src="${item.image}" alt="${item.title}" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
                         </div>
                         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-baseline mb-1"><h3 class="font-bold text-white text-[10px] sm:text-sm truncate w-full">${item.title.toUpperCase()}</h3><span class="font-mono text-[10px] sm:text-sm font-bold text-white">${item.price} zł</span></div>
                         <p class="text-[9px] sm:text-xs text-mono-400 mb-3 sm:mb-4">Wymiary: ${item.dims}</p>
@@ -454,8 +462,6 @@
             card.dataset.selectedColor = colorName;
             card.querySelectorAll('button[onclick^="changeCatColor"]').forEach(b => b.className = 'border border-mono-800 bg-mono-950 text-mono-400 py-1 px-0.5 sm:py-1.5 sm:px-1 rounded-sm text-[9px] sm:text-[11px] font-semibold flex items-center justify-center space-x-1 transition');
             btn.className = 'border border-white bg-mono-800 text-white py-1 px-0.5 sm:py-1.5 sm:px-1 rounded-sm text-[9px] sm:text-[11px] font-semibold flex items-center justify-center space-x-1 transition';
-            const prev = card.querySelector('.catalog-preview');
-            prev.className = `catalog-preview ${prev.classList[1]} text-sm sm:text-xl ${foilClass} tracking-wider text-center transition-all duration-300 truncate max-w-full`;
         };
 
         window.toggleFav = function(e, id, btn) {
